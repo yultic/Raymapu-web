@@ -1,0 +1,85 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+
+const team = [
+  {
+    name: "Pia Rodríguez",
+    role: "Fundadora y Apicultora",
+    image: "/portrait-of-chilean-woman-beekeeper-in-her-50s-warm.jpg",
+    description: "Más de 20 años dedicada a la apicultura y la preservación de las tradiciones.",
+  },
+  {
+    name: "Vito Morales",
+    role: "Co-fundador y Productor",
+    image: "/portrait-of-chilean-man-beekeeper-in-outdoor-settin.jpg",
+    description: "Experto en producción y control de calidad de todos nuestros productos.",
+  },
+  {
+    name: "Camila Rodríguez",
+    role: "Turismo y Comunicaciones",
+    image: "/portrait-of-young-chilean-woman-professional-natura.jpg",
+    description: "Encargada de las experiencias turísticas y la conexión con nuestros clientes.",
+  },
+]
+
+export function OurTeam() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true)
+      },
+      { threshold: 0.2 },
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section ref={sectionRef} className="py-24 bg-secondary/30">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            Nuestro equipo
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Las personas detrás de Raymapu</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Somos una familia unida por la pasión de producir la mejor miel de Chile.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {team.map((member, index) => (
+            <div
+              key={index}
+              className={cn(
+                "group bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-border/50",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+              )}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={member.image || "/placeholder.svg"}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
+                <p className="text-primary font-medium text-sm mb-3">{member.role}</p>
+                <p className="text-muted-foreground text-sm">{member.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
