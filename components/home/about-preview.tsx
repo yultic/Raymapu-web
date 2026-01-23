@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils"
 const highlights = [
   "Más de 15 años de tradición apícola",
   "Producción artesanal y sustentable",
-  "Respeto por las tradiciones mapuche",
-  "Compromiso con el medio ambiente",
+  "Trabajo en armonía con la naturaleza y sus tiempos",
+  "Compromiso real con el medio ambiente",
 ]
 
 export function AboutPreview() {
@@ -47,10 +47,10 @@ export function AboutPreview() {
             )}
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <Image src="/beekeepers-working-with-beehives-in-chilean-countr.jpg" alt="Apicultores en Villarrica" fill className="object-cover" />
+              <Image src="/apicultores.jpg" alt="Apicultores en Rio Puelo" fill className="object-cover" />
             </div>
             <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-background hidden md:block">
-              <Image src="/close-up-of-honey-dripping-from-honeycomb-golden-l.jpg" alt="Miel pura" fill className="object-cover" />
+              <Image src="/raymapu2.png" alt="Miel pura" fill className="object" />
             </div>
             {/* Decorative element */}
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
@@ -70,13 +70,13 @@ export function AboutPreview() {
               Una tradición que nace del amor por la tierra
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              En Raymapu, cada gota de miel cuenta una historia. Desde las laderas del volcán Villarrica, nuestras
+              En Raymapu, cada gota de miel cuenta una historia. Desde las laderas del volcán Yates, nuestras
               abejas trabajan entre bosques nativos de ulmo, tineo y arrayán, creando mieles con sabores únicos que
-              reflejan la riqueza de la Araucanía.
+              reflejan la riqueza de la Patagonia-Norte.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Somos una familia dedicada a la apicultura sustentable, combinando conocimientos ancestrales mapuche con
-              técnicas modernas para producir miel de la más alta calidad.
+              Somos una familia dedicada a la apicultura sustentable, trabajando en equilibrio
+              con el entorno natural y aplicando técnicas modernas para obtener miel de la más alta calidad.
             </p>
 
             <ul className="space-y-3 mb-8">

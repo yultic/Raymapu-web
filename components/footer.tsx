@@ -1,24 +1,27 @@
 import Link from "next/link"
-import { Facebook, Instagram, Youtube, Heart } from "lucide-react"
+import Image from "next/image"
+import { Facebook, Instagram, Youtube, Heart, Phone, Mail, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-card py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-amber-50 text-foreground py-4 border-t border-amber-200">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-4 group">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                <span className="text-primary-foreground font-bold text-lg">R</span>
-              </div>
-              <span className="font-bold text-2xl text-card">Raymapu</span>
+          <div className="md:col-span-4">
+            <Link href="/" className="inline-block mb-3 group">
+              <Image
+                src="/raymapu2.png"
+                alt="Raymapu"
+                width={130}
+                height={52}
+                className="transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
-            <p className="text-card/70 max-w-md mb-6 leading-relaxed">
-              Miel natural de la Araucanía, producida con respeto por la naturaleza y las tradiciones mapuche. Desde
-              Villarrica, llevamos el sabor de Chile a tu hogar.
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+              Miel natural en Rio Puelo, producida con respeto por la naturaleza.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               {[
                 { icon: Facebook, href: "#", label: "Facebook" },
                 { icon: Instagram, href: "#", label: "Instagram" },
@@ -28,17 +31,18 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-10 h-10 rounded-full bg-card/10 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:scale-110"
+                  className="w-9 h-9 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110"
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4" />
                 </Link>
               ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="font-semibold text-lg mb-4">Enlaces</h4>
-            <ul className="space-y-3">
+          {/* Enlaces */}
+          <div className="md:col-span-3 md:col-start-6">
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-amber-800 mb-3">Enlaces</h4>
+            <ul className="space-y-2">
               {[
                 { label: "Inicio", href: "/" },
                 { label: "Quiénes Somos", href: "/quienes-somos" },
@@ -48,7 +52,7 @@ export function Footer() {
                 { label: "Contacto", href: "/contacto" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-card/70 hover:text-primary transition-colors duration-300">
+                  <Link href={item.href} className="text-muted-foreground text-sm hover:text-primary transition-colors duration-300">
                     {item.label}
                   </Link>
                 </li>
@@ -57,36 +61,42 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-lg mb-4">Contacto</h4>
-            <ul className="space-y-3 text-card/70">
+          <div className="md:col-span-4">
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-amber-800 mb-3">Contacto</h4>
+            <ul className="space-y-2 text-sm">
               <li>
-                <a href="tel:+56996165488" className="hover:text-primary transition-colors">
+                <a href="tel:+56996165488" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
                   +569 96 16 54 88
                 </a>
               </li>
               <li>
-                <a href="tel:+56991297883" className="hover:text-primary transition-colors">
+                <a href="tel:+56991297883" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
                   +569 9129 78 83
                 </a>
               </li>
               <li>
-                <a href="mailto:info@raymapu.cl" className="hover:text-primary transition-colors">
+                <a href="mailto:info@raymapu.cl" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
                   info@raymapu.cl
                 </a>
               </li>
-              <li>Villarrica, Chile</li>
+              <li className="text-muted-foreground flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                Rio Puelo, Chile
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-card/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-card/60 text-sm">
+        <div className="border-t border-amber-200 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-muted-foreground text-xs">
             © {new Date().getFullYear()} Miel Raymapu. Todos los derechos reservados.
           </p>
-          <p className="text-card/60 text-sm flex items-center gap-1">
-            Hecho con <Heart className="w-4 h-4 text-destructive fill-destructive" /> en Chile
+          <p className="text-muted-foreground text-xs flex items-center gap-1">
+            Hecho con <Heart className="w-3 h-3 text-red-500 fill-red-500" /> Yultic
           </p>
         </div>
       </div>

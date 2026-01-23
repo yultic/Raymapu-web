@@ -31,18 +31,18 @@ export function OurStory() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/traditional-mapuche-beekeeping-in-araucania-region.jpg"
-                alt="Apicultura tradicional mapuche"
+                src="/vitopia.jpg"
+                alt="CEO"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-background hidden md:block">
               <Image
-                src="/hands-holding-honeycomb-frame-with-bees-natural-li.jpg"
+                src="/raymapu2.png"
                 alt="Panal de miel"
                 fill
-                className="object-cover"
+                className="object"
               />
             </div>
           </div>

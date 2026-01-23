@@ -32,7 +32,7 @@ export function CtaSection() {
       ref={sectionRef}
       className="py-24 relative overflow-hidden"
       style={{
-        backgroundImage: `url('/aerial-view-of-villarrica-lake-and-volcano-at-suns.jpg')`,
+        backgroundImage: `url('/turismo.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -54,7 +54,7 @@ export function CtaSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 mb-8">
             <MapPin className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary-foreground">Villarrica, Araucanía</span>
+            <span className="text-sm font-medium text-primary-foreground">Rio Puelo, Cochamo</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-card mb-6 text-balance">

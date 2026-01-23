@@ -63,7 +63,7 @@ export function FeaturesSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Calidad Chilena</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Más de 8 años produciendo la mejor miel de la región, con respeto por la naturaleza y compromiso con
+            Más de 15 años produciendo la mejor miel de la región, con respeto por la naturaleza y compromiso con
             nuestros clientes.
           </p>
         </div>

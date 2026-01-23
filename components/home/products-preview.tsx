@@ -4,35 +4,42 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Star } from "lucide-react"
+import { ArrowRight, Star, MessageCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const products = [
   {
     name: "Miel de Ulmo",
-    description: "Miel premium con propiedades antibacterianas únicas",
-    price: "$8.990",
-    image: "/jar-of-ulmo-honey-with-golden-color-and-wooden-hon.jpg",
+    description: "Aromas especiados, herbáceos y florales la distinguen, con notas que evocan vainilla, rosa mosqueta y hojas de té verde.",
+    image: "/Ulmo.jpg",
     rating: 5,
-    badge: "Más vendido",
+    badge: null,
   },
   {
-    name: "Miel Multifloral",
-    description: "Mezcla de flores nativas de la Araucanía",
-    price: "$6.990",
-    image: "/jar-of-multifloral-honey-with-amber-color-and-hone.jpg",
+    name: "Miel de Tiaca",
+    description: "De color amarillo claro y brillante, esta miel ofrece aromas frutales cálidos, con notas de melón y damascos frescos. Se complementa con matices florales de jazmín y un fondo herbáceo, mentolado y silvestre, lo que la hace especialmente atractiva para la gastronomía que busca destacar aromas frescos y expresivos.",
+    image: "/Tiaca.jpg",
     rating: 4.5,
     badge: null,
   },
   {
-    name: "Propóleo Natural",
-    description: "Extracto puro con propiedades medicinales",
-    price: "$12.990",
-    image: "/bottle-of-propolis-tincture-with-dropper-natural-m.jpg",
+    name: "Miel de Bosque Nativo",
+    description: "Miel de color amarillo ocre, de cosecha tardía y varietal natural. Predomina el ulmo, acompañado por tiaca y tineo, en una composición definida por la selección natural de las abejas y por las condiciones propias de cada temporada.",
+    image: "/Bosque-Nativo.jpg",
     rating: 5,
-    badge: "Nuevo",
+    badge: null,
   },
 ]
+
+// Configuración de WhatsApp - cambiá el número por el del cliente
+const WHATSAPP_NUMBER = "50361615021" // formato: código país + número sin espacios
+
+const generateWhatsAppLink = (productName: string) => {
+  const message = encodeURIComponent(
+    `Hola! Tienen disponible  *${productName}*. ¿Podrían darme preció?`
+  )
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`
+}
 
 export function ProductsPreview() {
   const [isVisible, setIsVisible] = useState(false)
@@ -63,7 +70,9 @@ export function ProductsPreview() {
             <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               Nuestros productos
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Sabores de la naturaleza</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Sabores de la naturaleza
+            </h2>
           </div>
           <Button asChild variant="outline" className="rounded-full group self-start md:self-auto bg-transparent">
             <Link href="/productos">
@@ -78,7 +87,7 @@ export function ProductsPreview() {
             <div
               key={index}
               className={cn(
-                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500",
+                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
@@ -96,26 +105,40 @@ export function ProductsPreview() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
                       className={cn(
                         "w-4 h-4",
-                        i < Math.floor(product.rating) ? "text-primary fill-primary" : "text-muted-foreground/30",
+                        i < Math.floor(product.rating)
+                          ? "text-primary fill-primary"
+                          : "text-muted-foreground/30",
                       )}
                     />
                   ))}
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">{product.name}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{product.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">{product.price}</span>
-                  <Button size="sm" className="rounded-full">
-                    Añadir
-                  </Button>
-                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  {product.name}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                  {product.description}
+                </p>
+                <Button
+                  asChild
+                  className="w-full rounded-full group/btn mt-auto"
+                >
+                  <a
+                    href={generateWhatsAppLink(product.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Consultar disponibilidad
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </a>
+                </Button>
               </div>
             </div>
           ))}

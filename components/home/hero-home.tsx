@@ -109,7 +109,7 @@ export function HeroHome() {
             )}
           >
             {[
-              { icon: Award, value: "8+", label: "Años de producción" },
+              { icon: Award, value: "15+", label: "Años de producción" },
               { icon: Heart, value: "100%", label: "Natural y artesanal" },
               { icon: Leaf, value: "100+", label: "Clientes satisfechos" },
             ].map((stat, index) => (

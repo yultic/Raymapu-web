@@ -10,21 +10,21 @@ const testimonials = [
     name: "María González",
     location: "Santiago",
     text: "La mejor miel que he probado en Chile. Se nota que es artesanal y el sabor es incomparable. Ya llevo 3 años siendo cliente.",
-    avatar: "/portrait-of-middle-aged-chilean-woman-smiling.jpg",
+    avatar: "/maria.jpg",
     rating: 5,
   },
   {
     name: "Carlos Muñoz",
     location: "Temuco",
     text: "El propóleo me ha ayudado mucho con mi sistema inmune. Productos de calidad y un servicio excelente. Muy recomendado.",
-    avatar: "/portrait-of-chilean-man-in-his-40s-friendly-face.jpg",
+    avatar: "/carlos.jpg",
     rating: 5,
   },
   {
     name: "Ana Soto",
     location: "Valdivia",
     text: "Visité su apiario en Villarrica y fue una experiencia increíble. La miel de ulmo es simplemente espectacular.",
-    avatar: "/portrait-of-young-chilean-woman-with-natural-look.jpg",
+    avatar: "/ana.jpg",
     rating: 5,
   },
 ]
@@ -59,7 +59,7 @@ export function TestimonialsSection() {
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Lo que dicen nuestros clientes</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Miles de familias chilenas confían en Raymapu para llevar lo mejor de la naturaleza a sus hogares.
+            Familias chilenas confían en Raymapu para llevar lo mejor de la naturaleza a sus hogares.
           </p>
         </div>
 
