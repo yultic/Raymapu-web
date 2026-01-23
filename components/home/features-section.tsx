@@ -79,22 +79,22 @@ export function FeaturesSection() {
             const IconLarge = features[0].icon
             return (
               <div
-                className="group relative overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl md:row-span-2 h-[300px] md:h-auto"
+                className="group relative overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-primary/50 active:border-primary/50 transition-all duration-500 hover:shadow-xl active:shadow-xl md:row-span-2 h-[300px] md:h-auto"
                 style={{ transitionDelay: "0ms" }}
               >
                 <Image
                   src={features[0].image}
                   alt={features[0].title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-60 group-active:scale-105 group-active:opacity-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-500 group-hover:from-black/90 group-hover:via-black/60 group-active:from-black/90 group-active:via-black/60" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 transition-transform duration-500 group-hover:scale-110 group-active:scale-110">
                     <IconLarge className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{features[0].title}</h3>
-                  <p className="text-white/80 leading-relaxed">{features[0].description}</p>
+                  <h3 className="text-2xl font-bold text-white mb-2 transition-all duration-500 group-hover:scale-105 group-active:scale-105 origin-left">{features[0].title}</h3>
+                  <p className="text-white/80 leading-relaxed transition-all duration-500 group-hover:text-white group-hover:scale-105 group-active:text-white group-active:scale-105 origin-left">{features[0].description}</p>
                 </div>
               </div>
             )
@@ -106,22 +106,22 @@ export function FeaturesSection() {
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl h-[250px]"
+                className="group relative overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-primary/50 active:border-primary/50 transition-all duration-500 hover:shadow-xl active:shadow-xl h-[250px]"
                 style={{ transitionDelay: `${(index + 1) * 100}ms` }}
               >
                 <Image
                   src={feature.image}
                   alt={feature.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-60 group-active:scale-105 group-active:opacity-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-500 group-hover:from-black/90 group-hover:via-black/60 group-active:from-black/90 group-active:via-black/60" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 transition-transform duration-500 group-hover:scale-110 group-active:scale-110">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">{feature.title}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed line-clamp-2">{feature.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-1 transition-all duration-500 group-hover:scale-105 group-active:scale-105 origin-left">{feature.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed line-clamp-2 transition-all duration-500 group-hover:text-white group-hover:scale-105 group-active:text-white group-active:scale-105 origin-left">{feature.description}</p>
                 </div>
               </div>
             )
@@ -132,22 +132,22 @@ export function FeaturesSection() {
             const IconWide = features[3].icon
             return (
               <div
-                className="group relative overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-xl h-[200px] lg:col-span-2"
+                className="group relative overflow-hidden rounded-3xl bg-card border border-border/50 hover:border-primary/50 active:border-primary/50 transition-all duration-500 hover:shadow-xl active:shadow-xl h-[200px] lg:col-span-2"
                 style={{ transitionDelay: "300ms" }}
               >
                 <Image
                   src={features[3].image}
                   alt={features[3].title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-60 group-active:scale-105 group-active:opacity-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent transition-all duration-500 group-hover:from-black/90 group-hover:via-black/70 group-active:from-black/90 group-active:via-black/70" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 md:max-w-[60%]">
-                  <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 transition-transform duration-500 group-hover:scale-110 group-active:scale-110">
                     <IconWide className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">{features[3].title}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed">{features[3].description}</p>
+                  <h3 className="text-lg font-bold text-white mb-1 transition-all duration-500 group-hover:scale-105 group-active:scale-105 origin-left">{features[3].title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed transition-all duration-500 group-hover:text-white group-hover:scale-105 group-active:text-white group-active:scale-105 origin-left">{features[3].description}</p>
                 </div>
               </div>
             )
