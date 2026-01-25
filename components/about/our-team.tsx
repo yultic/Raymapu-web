@@ -8,20 +8,14 @@ const team = [
   {
     name: "Pia Rodríguez",
     role: "Fundadora y Apicultora",
-    image: "/portrait-of-chilean-woman-beekeeper-in-her-50s-warm.jpg",
+    image: "/pia.jpg",
     description: "Más de 20 años dedicada a la apicultura y la preservación de las tradiciones.",
   },
   {
     name: "Vito Morales",
     role: "Co-fundador y Productor",
-    image: "/portrait-of-chilean-man-beekeeper-in-outdoor-settin.jpg",
+    image: "/vito.jpg",
     description: "Experto en producción y control de calidad de todos nuestros productos.",
-  },
-  {
-    name: "Camila Rodríguez",
-    role: "Turismo y Comunicaciones",
-    image: "/portrait-of-young-chilean-woman-professional-natura.jpg",
-    description: "Encargada de las experiencias turísticas y la conexión con nuestros clientes.",
   },
 ]
 
@@ -53,7 +47,7 @@ export function OurTeam() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {team.map((member, index) => (
             <div
               key={index}
@@ -63,12 +57,12 @@ export function OurTeam() {
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative aspect-square overflow-hidden">
+              <div className="relative aspect-square overflow-hidden ">
                 <Image
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6 text-center">

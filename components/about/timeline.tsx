@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 
 const milestones = [
-  { year: "2008", title: "El comienzo", description: "Instalamos nuestras primeras 10 colmenas en Villarrica." },
+  { year: "2008", title: "El comienzo", description: "Instalamos nuestras primeras 10 colmenas en Rio Puelo." },
   { year: "2012", title: "Primera certificación", description: "Obtuvimos certificación de producción orgánica." },
   { year: "2015", title: "Turismo apícola", description: "Abrimos nuestro apiario al turismo rural." },
   { year: "2018", title: "Expansión regional", description: "Comenzamos a distribuir en todo el sur de Chile." },
-  { year: "2022", title: "Reconocimiento", description: "Premio a la mejor miel de la Araucanía." },
-  { year: "2024", title: "Nuevos horizontes", description: "Lanzamiento de nuestra línea de cosméticos naturales." },
+  { year: "2022", title: "Reconocimiento", description: "Premio a la mejor miel de la Patagonia Norte." },
+  { year: "2024", title: "Nuevos horizontes", description: "Lanzamiento de nuevos productos naturales." },
 ]
 
 export function Timeline() {

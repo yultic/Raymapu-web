@@ -14,7 +14,7 @@ const experiences = [
     duration: "2 horas",
     groupSize: "2-10 personas",
     price: 15000,
-    image: "/tour-of-beehives-with-visitors-in-protective-gear.jpg",
+    image: "/",
     rating: 5,
   },
   {

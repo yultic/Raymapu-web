@@ -19,7 +19,7 @@ const values = [
   {
     icon: Users,
     title: "Comunidad",
-    description: "Valoramos las tradiciones mapuche y trabajamos junto a las comunidades locales de la Araucanía.",
+    description: "El sello Manos Campesinas garantiza que nuestra miel, además de ser un producto sano, es elaborado de forma artesanal por un pequeño productor que fomenta el desarrollo local.",
   },
   {
     icon: Sparkles,

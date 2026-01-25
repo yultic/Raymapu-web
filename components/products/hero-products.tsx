@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { Sparkles } from "lucide-react"
 
@@ -13,14 +14,15 @@ export function HeroProducts() {
 
   return (
     <section className="relative py-32 overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/various-honey-jars-and-bee-products-on-wooden-tabl.jpg')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-foreground/80" />
-      </div>
+      <Image
+        src="/panal.jpg"
+        alt="Productos de Raymapu en un entorno natural"
+        fill
+        priority
+        quality={100}
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-foreground/80" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div

@@ -3,79 +3,69 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Star, ShoppingCart, Eye } from "lucide-react"
+import { Star, MessageCircle, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const products = [
   {
     id: 1,
     name: "Miel de Ulmo",
-    description: "Miel premium con propiedades antibacterianas. Proveniente de bosques nativos.",
-    price: 8990,
-    originalPrice: 10990,
-    image: "/jar-of-ulmo-honey-with-golden-color-and-wooden-hon.jpg",
+    description: "Aromas especiados, herbáceos y florales la distinguen, con notas que evocan vainilla, rosa mosqueta y hojas de té verde.",
+    image: "/Ulmo.jpg",
     rating: 5,
-    reviews: 48,
-    badge: "Más vendido",
     category: "Mieles",
   },
   {
     id: 2,
-    name: "Miel Multifloral",
-    description: "Mezcla de flores nativas de la Araucanía. Sabor suave y aromático.",
-    price: 6990,
-    image: "/jar-of-multifloral-honey-with-amber-color-and-hone.jpg",
+    name: "Miel de Tiaca",
+    description: "De color amarillo claro y brillante, esta miel ofrece aromas frutales cálidos, con notas de melón y damascos frescos. Se complementa con matices florales de jazmín y un fondo herbáceo, mentolado y silvestre, lo que la hace especialmente atractiva para la gastronomía que busca destacar aromas frescos y expresivos.",
+    image: "/Tiaca.jpg",
     rating: 4.5,
-    reviews: 32,
-    badge: null,
     category: "Mieles",
   },
   {
     id: 3,
     name: "Miel de Tineo",
-    description: "Miel de color oscuro con sabor intenso. Ideal para postres.",
-    price: 7990,
-    image: "/dark-tineo-honey-in-glass-jar-with-rich-amber-colo.jpg",
+    description: "De color dorado, presenta una amplia gama de aromas silvestres que le otorgan una marcada personalidad. Se distinguen notas cítricas de pomelo y cáscara de nuez, acompañadas por matices de cereal —trigo— y un suave toque de jengibre, sobre un fondo particular que recuerda al coco rallado.",
+    image: "/tineo.jpg",
     rating: 5,
-    reviews: 21,
-    badge: null,
     category: "Mieles",
   },
   {
     id: 4,
-    name: "Propóleo en Gotas",
-    description: "Extracto puro de propóleo con propiedades medicinales naturales.",
-    price: 12990,
-    image: "/bottle-of-propolis-tincture-with-dropper-natural-m.jpg",
+    name: "Miel de Bosque Nativo",
+    description: "Miel de color amarillo ocre, de cosecha tardía y varietal natural. Predomina el ulmo, acompañado por tiaca y tineo, en una composición definida por la selección natural de las abejas y por las condiciones propias de cada temporada.",
+    image: "/Bosque-Nativo.jpg",
     rating: 5,
-    reviews: 56,
-    badge: "Nuevo",
     category: "Propóleo",
   },
   {
     id: 5,
-    name: "Polen de Abeja",
-    description: "Superalimento natural rico en proteínas y vitaminas.",
-    price: 9990,
-    image: "/jar-of-bee-pollen-granules-golden-yellow-natural-s.jpg",
-    rating: 4.5,
-    reviews: 18,
-    badge: null,
+    name: "Giftpack 3 mieles",
+    description: "Trío de mieles varietales —Tineo, Tiaca y Ulmo— en formato de 35 g cada una, presentado en un atractivo pack de regalo de cartón café con impresión en tinta negra.",
+    image: "/tresmieles.jpg",
+    rating: 5,
     category: "Polen",
   },
   {
     id: 6,
-    name: "Pack Familiar",
+    name: "Miel en Baldes",
     description: "3 mieles varietales + propóleo. Ideal para regalo o uso diario.",
-    price: 29990,
-    originalPrice: 35990,
-    image: "/gift-pack-of-honey-products-with-three-jars-and-pr.jpg",
+    image: "/mielbalde.jpg",
     rating: 5,
-    reviews: 24,
-    badge: "Oferta",
     category: "Packs",
   },
 ]
+
+// Configuración de WhatsApp - cambiá el número por el del cliente
+const WHATSAPP_NUMBER = "50361615021" // formato: código país + número sin espacios
+
+const generateWhatsAppLink = (productName: string) => {
+  const message = encodeURIComponent(
+    `Hola! Tienen disponible  *${productName}*. ¿Podrían darme preció?`
+  )
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`
+}
 
 export function ProductsGrid() {
   const [isVisible, setIsVisible] = useState(false)
@@ -92,14 +82,6 @@ export function ProductsGrid() {
     return () => observer.disconnect()
   }, [])
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("es-CL", {
-      style: "currency",
-      currency: "CLP",
-      minimumFractionDigits: 0,
-    }).format(price)
-  }
-
   return (
     <section ref={sectionRef} className="py-16">
       <div className="container mx-auto px-6">
@@ -108,37 +90,12 @@ export function ProductsGrid() {
             <div
               key={product.id}
               className={cn(
-                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500",
+                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="relative aspect-square overflow-hidden bg-secondary/30">
-                {product.badge && (
-                  <span
-                    className={cn(
-                      "absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-medium",
-                      product.badge === "Oferta"
-                        ? "bg-destructive text-white"
-                        : product.badge === "Nuevo"
-                          ? "bg-accent text-accent-foreground"
-                          : "bg-primary text-primary-foreground",
-                    )}
-                  >
-                    {product.badge}
-                  </span>
-                )}
-
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-foreground/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
-                  <Button size="icon" variant="secondary" className="rounded-full h-12 w-12">
-                    <Eye className="h-5 w-5" />
-                  </Button>
-                  <Button size="icon" className="rounded-full h-12 w-12">
-                    <ShoppingCart className="h-5 w-5" />
-                  </Button>
-                </div>
-
                 <Image
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
@@ -146,8 +103,7 @@ export function ProductsGrid() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="flex items-center gap-0.5">
                     {[...Array(5)].map((_, i) => (
@@ -160,25 +116,23 @@ export function ProductsGrid() {
                       />
                     ))}
                   </div>
-                  <span className="text-sm text-muted-foreground">({product.reviews})</span>
                 </div>
-
                 <h3 className="text-xl font-semibold text-foreground mb-2">{product.name}</h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{product.description}</p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold text-primary">{formatPrice(product.price)}</span>
-                    {product.originalPrice && (
-                      <span className="text-sm text-muted-foreground line-through">
-                        {formatPrice(product.originalPrice)}
-                      </span>
-                    )}
-                  </div>
-                  <Button size="sm" className="rounded-full">
-                    Añadir
-                  </Button>
-                </div>
+                <p className="text-muted-foreground text-sm mb-4 flex-grow">{product.description}</p>
+                <Button
+                  asChild
+                  className="w-full rounded-full group/btn mt-auto"
+                >
+                  <a
+                    href={generateWhatsAppLink(product.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Consultar disponibilidad
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  </a>
+                </Button>
               </div>
             </div>
           ))}

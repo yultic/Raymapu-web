@@ -61,19 +61,20 @@ export function OurStory() {
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Todo comenzó en el año 2008, cuando nuestra familia decidió emprender un proyecto que combinara el amor
-                por la naturaleza con las tradiciones de nuestra tierra. En las faldas del volcán Villarrica, rodeados
-                de bosques nativos, instalamos nuestras primeras colmenas.
+              En 1988 iniciamos la búsqueda de una forma de vida que nos permitiera trabajar de manera independiente y compartir más tiempo en familia. En ese camino nos encontramos con la apicultura.
+
+              Nuestros cuatro hijos crecieron entre baldes de miel y marcos de cera, observando y aprendiendo mientras las colmenas se llenaban cada primavera con el trabajo incansable de las abejas.
+
+              En 2008 nos trasladamos a Río Puelo, convencidos de que no existe en Chile un territorio más privilegiado para la producción de miel que la Patagonia Norte.
               </p>
               <p>
                 El nombre <strong className="text-foreground">Raymapu</strong> proviene del mapudungun y significa
-                &ldquo;tierra florida&rdquo;, un homenaje a la rica biodiversidad de la Araucanía que alimenta a
+                &ldquo;tierra florida&rdquo;, un homenaje a la rica biodiversidad de la Patagonia Norte que alimenta a
                 nuestras abejas y da origen a nuestras mieles únicas.
               </p>
               <p>
-                Hoy, más de 15 años después, seguimos fieles a nuestros principios: producir miel de la más alta
-                calidad, respetando el medio ambiente y preservando las técnicas tradicionales de apicultura que hemos
-                aprendido de las comunidades mapuche de la zona.
+                Hoy, más de 15 años después, seguimos fieles a nuestros principios: producir 
+                miel de la más alta calidad, respetando el medio ambiente y aplicando las técnicas de apicultura que hemos perfeccionado a lo largo de los años.
               </p>
             </div>
           </div>

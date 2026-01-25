@@ -27,7 +27,7 @@ export function ContactMap() {
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Encuéntranos</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Estamos ubicados en Villarrica, a solo 10 minutos del centro de la ciudad.
+            Estamos ubicados en Rio Puelo, a solo 10 minutos del pueblo.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export function ContactMap() {
           )}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49442.38441892!2d-72.28!3d-39.28!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614e7a5d0d0d0d1%3A0x0!2sVillarrica%2C%20Araucania%2C%20Chile!5e0!3m2!1sen!2sus!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.9735975848184!2d-72.35652942368098!3d-41.69950566594716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9619a32cedcbfc09%3A0xcda1ec02c579b9b0!2sRaymapu%20Mieles%20de%20la%20Patagonia!5e0!3m2!1ses!2scl!4v1769384447078!5m2!1ses!2scl"
             width="100%"
             height="100%"
             style={{ border: 0 }}

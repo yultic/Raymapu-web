@@ -33,7 +33,7 @@ export function HeroTourism() {
             )}
           >
             <MapPin className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary-foreground">Villarrica, Araucanía</span>
+            <span className="text-sm font-medium text-primary-foreground">Rio Puelo, Cochamo</span>
           </div>
 
           <h1

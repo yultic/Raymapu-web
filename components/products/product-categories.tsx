@@ -5,10 +5,9 @@ import { cn } from "@/lib/utils"
 import { Droplets, Pill, Flower2, Gift } from "lucide-react"
 
 const categories = [
-  { icon: Droplets, name: "Mieles", count: 5 },
-  { icon: Pill, name: "Propóleo", count: 3 },
-  { icon: Flower2, name: "Polen", count: 2 },
-  { icon: Gift, name: "Packs", count: 4 },
+  { icon: Droplets, name: "Mieles", count: 4 },
+  { icon: Pill, name: "Baldes", count: 4 },
+  { icon: Gift, name: "Packs", count: 1 },
 ]
 
 export function ProductCategories() {

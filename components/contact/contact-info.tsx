@@ -8,7 +8,7 @@ const contactDetails = [
   {
     icon: Phone,
     title: "Teléfonos",
-    lines: ["+569 96 16 54 88 (Pia)", "+569 9129 78 83 (Vito)"],
+    lines: ["+569 96 16 54 88 (Pia)"],
   },
   {
     icon: Mail,
@@ -18,7 +18,7 @@ const contactDetails = [
   {
     icon: MapPin,
     title: "Ubicación",
-    lines: ["Camino a Pucón Km 5", "Villarrica, Araucanía, Chile"],
+    lines: [ "Rio Puelo, Chile"],
   },
   {
     icon: Clock,
