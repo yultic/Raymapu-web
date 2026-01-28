@@ -16,7 +16,7 @@ export function HeroContact() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/beautiful-honey-farm-landscape-with-mountains-and-.jpg')`,
+          backgroundImage: `url('/9.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-foreground/80" />

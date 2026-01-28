@@ -5,10 +5,10 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const images = [
-  { src: "/visitors-observing-beehive-up-close-educational-tour.jpg", alt: "Visitantes observando colmena" },
-  { src: "/beautiful-landscape-of-villarrica-with-native-forest.jpg", alt: "Paisaje de Villarrica" },
-  { src: "/honey-tasting-session-with-different-varieties.jpg", alt: "Degustación de miel" },
-  { src: "/beekeeper-showing-honeycomb-to-visitors.jpg", alt: "Apicultor mostrando panal" },
+  { src: "/8.jpg", alt: "Tour por el Bosque y colmenas" },
+  { src: "/3.jpg", alt: "Flora del Bosque" },
+  { src: "/2.jpg", alt: "Visitantes observando colmena" },
+  { src: "/5.jpg", alt: "Bosque Verde" },
 ]
 
 export function TourismGallery() {

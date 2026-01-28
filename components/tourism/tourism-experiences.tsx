@@ -15,7 +15,7 @@ const experiences = [
       "Viví de cerca el mundo de las abejas: conocé la colmena, el trabajo del apiario y el proceso completo de producción de miel, desde el néctar de las flores hasta la cosecha y el envasado.\n\nLa experiencia incluye degustación de mieles del bosque patagónico.\n\nDuración: 2 a 2½ horas\nDisponibilidad: Sólo con clima templado\n\nVestimenta requerida:\n• Zapatillas y calcetines\n• Pantalón largo (evitar calzas negras y ajustadas)\n\nIncluye:\n• Chaqueta con sombrero de apicultor\n• Guantes de protección",
     duration: "2-2.5 horas",
     groupSize: "4-8 personas",
-    image: "/toris1.jpg",
+    image: "/4.jpg",
     rating: 5,
   },
   {
@@ -25,6 +25,15 @@ const experiences = [
     duration: "1.5 horas",
     groupSize: "Familias",
     image: "/caminata.jpg",
+    rating: 5,
+  },
+  {
+    title: "Taller de Extracción de Miel",
+    description:
+      "Participá activamente en el proceso de extracción de miel artesanal. Aprenderás a desopercular los panales, usar la centrífuga manual y filtrar la miel recién cosechada.\n\nUna experiencia práctica donde podrás llevarte un frasco de la miel que vos mismo extrajiste.\n\nDuración: 1.5 a 2 horas\nDisponibilidad: Temporada de cosecha (diciembre a marzo)\n\nIncluye:\n• Equipamiento de protección completo\n• Materiales para la extracción\n• Frasco de miel para llevar",
+    duration: "1.5-2 horas",
+    groupSize: "2-6 personas",
+    image: "/toris1.jpg",
     rating: 5,
   },
 ]
@@ -67,7 +76,7 @@ export function TourismExperiences() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {experiences.map((experience, index) => (
             <div
               key={index}

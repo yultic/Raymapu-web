@@ -23,9 +23,9 @@ export function Footer() {
             </p>
             <div className="flex gap-2">
               {[
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Youtube, href: "#", label: "YouTube" },
+                { icon: Facebook, href: "https://www.facebook.com/raymapumiel", label: "Facebook" },
+                { icon: Instagram, href: "https://www.instagram.com/raymapumiel/", label: "Instagram" },
+                { icon: Youtube, href: "https://www.youtube.com/channel/UCKU88R7N4V-f-RhVIbzsckg", label: "YouTube" },
               ].map(({ icon: Icon, href, label }) => (
                 <Link
                   key={label}

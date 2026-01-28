@@ -18,7 +18,7 @@ export function HeroTourism() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/turismo1.jpg')`,
+          backgroundImage: `url('/10.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-transparent" />

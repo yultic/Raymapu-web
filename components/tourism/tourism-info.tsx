@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, type ReactNode } from "react"
 import { MapPin, Phone, Clock, Car } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -8,11 +8,15 @@ const info = [
   {
     icon: MapPin,
     title: "Ubicación",
-    description: `Desde Puelo
-    Tomar la ruta asfaltada V-691 en dirección a Puelche. Tras cruzar el Río Blanco, avanzar 300 m y girar a la derecha por camino ripiado. A 250 m, a la izquierda, se encuentra la entrada señalizada.
-
-    Desde Puelche
-    Tomar la ruta V-691 en dirección a Puelo. En el km 85, cruzar el puente Santa Teresa y girar a la izquierda por camino ripiado. A 250 m, a la izquierda, se encuentra la entrada señalizada.`,
+    description: (
+      <>
+        <strong>Desde Puelo</strong>
+        {"\n"}Tomar la ruta asfaltada V-691 en dirección a Puelche. Tras cruzar el Río Blanco, avanzar 300 m y girar a la derecha por camino ripiado. A 250 m, a la izquierda, se encuentra la entrada señalizada.
+        {"\n\n"}
+        <strong>Desde Puelche</strong>
+        {"\n"}Tomar la ruta V-691 en dirección a Puelo. En el km 85, cruzar el puente Santa Teresa y girar a la izquierda por camino ripiado. A 250 m, a la izquierda, se encuentra la entrada señalizada.
+      </>
+    ),
   },
   {
     icon: Clock,

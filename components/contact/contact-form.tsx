@@ -11,10 +11,27 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Send, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+const EMAIL = "mielraymapu@gmail.com"
+
+const asuntos: Record<string, string> = {
+  productos: "Consulta sobre productos",
+  pedido: "Realizar un pedido",
+  turismo: "Reserva de turismo",
+  mayorista: "Venta mayorista",
+  otro: "Otro",
+}
+
 export function ContactForm() {
   const [isVisible, setIsVisible] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  })
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,6 +46,18 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    const asunto = asuntos[formData.subject] || formData.subject || "Contacto desde la web"
+    const cuerpo = `Nombre: ${formData.name}
+Email: ${formData.email}
+Teléfono: ${formData.phone || "No proporcionado"}
+
+Mensaje:
+${formData.message}`
+
+    const mailtoUrl = `mailto:${EMAIL}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`
+    window.location.href = mailtoUrl
+
     setIsSubmitted(true)
     setTimeout(() => setIsSubmitted(false), 3000)
   }
@@ -53,22 +82,46 @@ export function ContactForm() {
         <div className="grid sm:grid-cols-2 gap-6">
           <div className="space-y-2">
             <Label htmlFor="name">Nombre</Label>
-            <Input id="name" placeholder="Tu nombre" className="rounded-lg" required />
+            <Input
+              id="name"
+              placeholder="Tu nombre"
+              className="rounded-lg"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Correo electrónico</Label>
-            <Input id="email" type="email" placeholder="tu@email.com" className="rounded-lg" required />
+            <Input
+              id="email"
+              type="email"
+              placeholder="tu@email.com"
+              className="rounded-lg"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
           </div>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
           <div className="space-y-2">
             <Label htmlFor="phone">Teléfono</Label>
-            <Input id="phone" placeholder="+56 9 1234 5678" className="rounded-lg" />
+            <Input
+              id="phone"
+              placeholder="+56 9 1234 5678"
+              className="rounded-lg"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="subject">Asunto</Label>
-            <Select>
+            <Select
+              value={formData.subject}
+              onValueChange={(value) => setFormData({ ...formData, subject: value })}
+            >
               <SelectTrigger id="subject" className="rounded-lg">
                 <SelectValue placeholder="Selecciona un asunto" />
               </SelectTrigger>
@@ -90,6 +143,8 @@ export function ContactForm() {
             placeholder="Cuéntanos en qué podemos ayudarte..."
             className="rounded-lg min-h-[150px]"
             required
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           />
         </div>
 

@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils"
 
 const team = [
   {
-    name: "Pia Rodríguez",
+    name: "Pia Krag",
     role: "Fundadora y Apicultora",
     image: "/pia.jpg",
     description: "Más de 20 años dedicada a la apicultura y la preservación de las tradiciones.",
   },
   {
-    name: "Vito Morales",
+    name: "Vito Torrijos",
     role: "Co-fundador y Productor",
     image: "/vito.jpg",
     description: "Experto en producción y control de calidad de todos nuestros productos.",
