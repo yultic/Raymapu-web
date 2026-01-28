@@ -3,44 +3,35 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Clock, Users, Star } from "lucide-react"
+import { Clock, Users, Star, ChevronDown, ChevronUp } from "lucide-react"
 import { cn } from "@/lib/utils"
+
+const WHATSAPP_NUMBER = "56912345678" // Reemplaza con tu número de WhatsApp
 
 const experiences = [
   {
-    title: "Tour del Apiario",
+    title: "Experiencia Apícola Guiada",
     description:
-      "Visita guiada completa por nuestro apiario. Conoce las colmenas, aprende sobre el ciclo de vida de las abejas y observa cómo producimos nuestra miel.",
-    duration: "2 horas",
-    groupSize: "2-10 personas",
-    price: 15000,
-    image: "/",
-    rating: 5,
-  },
-  {
-    title: "Taller de Extracción",
-    description:
-      "Participa activamente en la extracción de miel. Una experiencia hands-on que te permite conocer todo el proceso de primera mano.",
-    duration: "3 horas",
+      "Viví de cerca el mundo de las abejas: conocé la colmena, el trabajo del apiario y el proceso completo de producción de miel, desde el néctar de las flores hasta la cosecha y el envasado.\n\nLa experiencia incluye degustación de mieles del bosque patagónico.\n\nDuración: 2 a 2½ horas\nDisponibilidad: Sólo con clima templado\n\nVestimenta requerida:\n• Zapatillas y calcetines\n• Pantalón largo (evitar calzas negras y ajustadas)\n\nIncluye:\n• Chaqueta con sombrero de apicultor\n• Guantes de protección",
+    duration: "2-2.5 horas",
     groupSize: "4-8 personas",
-    price: 25000,
-    image: "/honey-extraction-workshop-with-participants-using-e.jpg",
+    image: "/toris1.jpg",
     rating: 5,
   },
   {
-    title: "Experiencia Familiar",
+    title: "Sendero Interpretativo Selva Patagónica",
     description:
-      "Diseñada especialmente para familias con niños. Incluye actividades educativas, degustación de miel y un recuerdo para llevar.",
+      "Descubrí la magia de la selva patagónica en un recorrido guiado por el bosque templado lluvioso, parte de la Reserva Mundial de la Biósfera \"Bosques Templados Lluviosos de los Andes Australes\".\n\nDurante la caminata conocerás árboles centenarios y renovales, el proyecto de reforestación que desarrollamos y las especies que conviven en este ecosistema único a nivel mundial.\n\nEl recorrido está lleno de hitos naturales y relatos: el árbol de los duendes, el canelo pata de elefante, la colina de los gigantes caídos, los troncos huecos de alerces, y muchas sorpresas más.\n\nDificultad: Baja\nDistancia: Aproximadamente 2 km\nApto para: Adultos y niños\n\nRecomendaciones:\n• Manga y pantalón largo\n• Zapatillas y calcetines\n• Gorro para el sol y bloqueador\n• Colores claros en temporada de tábanos\n• En caso de lluvia, calzado impermeable",
     duration: "1.5 horas",
     groupSize: "Familias",
-    price: 12000,
-    image: "/family-at-beekeeping-experience-with-children-learn.jpg",
-    rating: 4.5,
+    image: "/caminata.jpg",
+    rating: 5,
   },
 ]
 
 export function TourismExperiences() {
   const [isVisible, setIsVisible] = useState(false)
+  const [expandedCard, setExpandedCard] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -76,12 +67,12 @@ export function TourismExperiences() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {experiences.map((experience, index) => (
             <div
               key={index}
               className={cn(
-                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500",
+                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
@@ -95,7 +86,7 @@ export function TourismExperiences() {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -109,25 +100,54 @@ export function TourismExperiences() {
                 </div>
 
                 <h3 className="text-xl font-semibold text-foreground mb-2">{experience.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{experience.description}</p>
-
-                <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    <span>{experience.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
-                    <span>{experience.groupSize}</span>
-                  </div>
+                <div className="mb-4 flex-1">
+                  <p
+                    className={cn(
+                      "text-muted-foreground text-sm whitespace-pre-line transition-all duration-300",
+                      expandedCard === index ? "" : "line-clamp-3"
+                    )}
+                  >
+                    {experience.description}
+                  </p>
+                  <button
+                    onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+                    className="flex items-center gap-1 text-primary text-sm font-medium mt-2 hover:underline"
+                  >
+                    {expandedCard === index ? (
+                      <>
+                        Leer menos <ChevronUp className="w-4 h-4" />
+                      </>
+                    ) : (
+                      <>
+                        Leer más <ChevronDown className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <div>
-                    <span className="text-sm text-muted-foreground">Desde</span>
-                    <div className="text-2xl font-bold text-primary">{formatPrice(experience.price)}</div>
+                <div className="mt-auto">
+                  <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{experience.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Users className="w-4 h-4" />
+                      <span>{experience.groupSize}</span>
+                    </div>
                   </div>
-                  <Button className="rounded-full">Reservar</Button>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <Button
+                      className="rounded-full"
+                      onClick={() => {
+                        const message = encodeURIComponent(`Hola, me interesa reservar la experiencia: ${experience.title}`)
+                        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank")
+                      }}
+                    >
+                      Reservar
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
