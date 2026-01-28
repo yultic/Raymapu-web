@@ -7,24 +7,22 @@ import { cn } from "@/lib/utils"
 
 const testimonials = [
   {
-    name: "María González",
-    location: "Santiago",
-    text: "La mejor miel que he probado en Chile. Se nota que es artesanal y el sabor es incomparable. Ya llevo 3 años siendo cliente.",
-    avatar: "/maria.jpg",
+    name: "Gabriela Verdugo Weinberger",
+    text: "Hace años que como familia tenemos el privilegio de consumir la maravillosa miel de Raymapu. En sus primeros años apadrinamos una colmena. Y con el pasar del tiempo nos hemos mantenido en contacto para seguir disfrutando de una miel que además tiene historia, y donde sus protagonistas son Pia y Vito, que le aportan sostenibilidad y propósito a todo lo que impulsan, protegiendo a las abejas y cuidando el medioambiente. Es una miel recomendadísima, pura, deliciosa y sin comparación, con todo el sello de la patagonia.",
+    avatar: "/gabriela.png",
     rating: 5,
   },
   {
-    name: "Carlos Muñoz",
-    location: "Temuco",
-    text: "El propóleo me ha ayudado mucho con mi sistema inmune. Productos de calidad y un servicio excelente. Muy recomendado.",
-    avatar: "/carlos.jpg",
+    name: "Luis Callejas",
+    text: "Un lugar acogedor, hermoso, con Vito y Pía (ambos hermosas personas), un tour apícola de ensueño, dedicado, mágico, lleno de aprendizaje donde cada detalle y palabra refleja el amor y cariño por lo que hacen. Especial agradecimiento por la dedicación a los detalles con nuestro hijo autista que adoró cada momento del tour y ha transmitido todos los días, a quien puede oirle, sobre LO MEJOR DE PUELO. No esta demás mencionar la excelente calidad de la miel que es realmente rica, sabrosa y sana.Muchas gracias Vito y Pía por un día mágico con ustedes.VOLVEREMOS!!!!",
+    avatar: "/luis.png",
     rating: 5,
   },
   {
-    name: "Ana Soto",
+    name: "Magdalena Maino",
     location: "Valdivia",
-    text: "Visité su apiario en Villarrica y fue una experiencia increíble. La miel de ulmo es simplemente espectacular.",
-    avatar: "/ana.jpg",
+    text: "Muy buen panorama para hacer con niños en el sector de Puelo. Nos dieron trajes adecuados y nos enseñaron el proceso completo desde las colmenas hasta el frasco de miel. Una gran experiencia.",
+    avatar: "/magdalena.png",
     rating: 5,
   },
 ]

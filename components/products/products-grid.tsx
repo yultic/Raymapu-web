@@ -37,23 +37,55 @@ const products = [
     description: "Miel de color amarillo ocre, de cosecha tardía y varietal natural. Predomina el ulmo, acompañado por tiaca y tineo, en una composición definida por la selección natural de las abejas y por las condiciones propias de cada temporada.",
     image: "/Bosque-Nativo.jpg",
     rating: 5,
-    category: "Propóleo",
+    category: "Mieles",
   },
   {
     id: 5,
     name: "Giftpack 3 mieles",
     description: "Trío de mieles varietales —Tineo, Tiaca y Ulmo— en formato de 35 g cada una, presentado en un atractivo pack de regalo de cartón café con impresión en tinta negra.",
-    image: "/tresmieles.jpg",
+    image: "/gift.jpeg",
     rating: 5,
-    category: "Polen",
+    category: "Gift",
   },
   {
     id: 6,
-    name: "Miel en Baldes",
-    description: "3 mieles varietales + propóleo. Ideal para regalo o uso diario.",
-    image: "/mielbalde.jpg",
+    name: "Hidromiel",
+    description: "Las primeras botellas de nuestra producción anual de hidromiel, elaborada con manzanas de otoño.",
+    image: "/hidromiel.jpeg",
     rating: 5,
-    category: "Packs",
+    category: "Hidromiel",
+  },
+  {
+    id: 7,
+    name: "Baldes",
+    description: "Baldes disponibles en distintos formatos.Se recomienda encargar con anticipación.Formatos en tienda: 1,5 kg 2,5 kg Formatos a pedido: Tinetas de 5 kg y 7 kg Despacho a regiones vía Pullman o Correos de Chile.",
+    image: "/baldes.jpeg",
+    rating: 5,
+    category: "Mieles",
+  },
+  {
+    id: 8,
+    name: "Miel en Panal",
+    description: "Miel en panal (miel virgen). Miel en su envase original, que conserva intactos sus sabores y aromas más sutiles.",
+    image: "/mielpanal.jpeg",
+    rating: 5,
+    category: "Mieles",
+  },
+  {
+    id: 9,
+    name: "Velas de Cera de Abeja",
+    description: "Naturales, limpias y de combustión pura, ideales para crear ambientes cálidos y armoniosos.",
+    image: "/velas.jpeg",
+    rating: 5,
+    category: "Accesorios",
+  },
+  {
+    id: 10,
+    name: "Cera Pura de Abeja",
+    description: "Disponible desde 50 gramos. Ideal para cosmética, velas y usos artesanales.",
+    image: "/cera.jpeg",
+    rating: 5,
+    category: "Accesorios",
   },
 ]
 
@@ -67,9 +99,17 @@ const generateWhatsAppLink = (productName: string) => {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`
 }
 
-export function ProductsGrid() {
+interface ProductsGridProps {
+  selectedCategory: string
+}
+
+export function ProductsGrid({ selectedCategory }: ProductsGridProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+
+  const filteredProducts = selectedCategory === "Todos"
+    ? products
+    : products.filter((p) => p.category === selectedCategory)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,7 +126,7 @@ export function ProductsGrid() {
     <section ref={sectionRef} className="py-16">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+          {filteredProducts.map((product, index) => (
             <div
               key={product.id}
               className={cn(

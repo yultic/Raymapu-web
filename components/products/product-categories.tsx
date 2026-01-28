@@ -2,17 +2,23 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Droplets, Pill, Flower2, Gift } from "lucide-react"
+import { Droplets, Gift, Wine, Flame, LayoutGrid } from "lucide-react"
 
 const categories = [
-  { icon: Droplets, name: "Mieles", count: 4 },
-  { icon: Pill, name: "Baldes", count: 4 },
-  { icon: Gift, name: "Packs", count: 1 },
+  { icon: LayoutGrid, name: "Todos", count: 10 },
+  { icon: Droplets, name: "Mieles", count: 6 },
+  { icon: Gift, name: "Gift", count: 1 },
+  { icon: Wine, name: "Hidromiel", count: 1 },
+  { icon: Flame, name: "Accesorios", count: 2 },
 ]
 
-export function ProductCategories() {
+interface ProductCategoriesProps {
+  selectedCategory: string
+  onCategoryChange: (category: string) => void
+}
+
+export function ProductCategories({ selectedCategory, onCategoryChange }: ProductCategoriesProps) {
   const [isVisible, setIsVisible] = useState(false)
-  const [activeCategory, setActiveCategory] = useState("Mieles")
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -33,11 +39,11 @@ export function ProductCategories() {
           {categories.map((category, index) => (
             <button
               key={category.name}
-              onClick={() => setActiveCategory(category.name)}
+              onClick={() => onCategoryChange(category.name)}
               className={cn(
                 "flex items-center gap-3 px-6 py-3 rounded-full border transition-all duration-300",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
-                activeCategory === category.name
+                selectedCategory === category.name
                   ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25"
                   : "bg-card text-foreground border-border hover:border-primary/50",
               )}
@@ -48,7 +54,7 @@ export function ProductCategories() {
               <span
                 className={cn(
                   "text-xs px-2 py-0.5 rounded-full",
-                  activeCategory === category.name ? "bg-primary-foreground/20" : "bg-muted",
+                  selectedCategory === category.name ? "bg-primary-foreground/20" : "bg-muted",
                 )}
               >
                 {category.count}

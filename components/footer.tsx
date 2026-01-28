@@ -71,12 +71,6 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+56991297883" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  +569 9129 78 83
-                </a>
-              </li>
-              <li>
                 <a href="mailto:info@raymapu.cl" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
                   <Mail className="w-4 h-4" />
                   info@raymapu.cl

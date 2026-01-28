@@ -40,7 +40,7 @@ export function Navbar() {
             </a>
             <a href="mailto:info@raymapu.cl" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="h-4 w-4" />
-              <span>mielraymapu@gmail.com</span>
+              <span>info@raymapu.cl</span>
             </a>
           </div>
           <div className="flex items-center gap-4">
