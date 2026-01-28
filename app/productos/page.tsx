@@ -1,20 +1,22 @@
+"use client"
+
+import { useState } from "react"
 import { HeroProducts } from "@/components/products/hero-products"
 import { ProductsGrid } from "@/components/products/products-grid"
 import { ProductCategories } from "@/components/products/product-categories"
 import { ProductsBenefits } from "@/components/products/products-benefits"
 
-export const metadata = {
-  title: "Productos - Miel Raymapu",
-  description:
-    "Descubre nuestra línea de miel natural, propóleo, polen y productos apícolas de la Araucanía. 100% puros y artesanales.",
-}
-
 export default function ProductosPage() {
+  const [selectedCategory, setSelectedCategory] = useState("Todos")
+
   return (
     <div className="min-h-screen bg-background">
       <HeroProducts />
-      <ProductCategories />
-      <ProductsGrid />
+      <ProductCategories
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
+      <ProductsGrid selectedCategory={selectedCategory} />
       <ProductsBenefits />
     </div>
   )
