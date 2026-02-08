@@ -1,11 +1,11 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 const highlights = [
   "Más de 15 años de tradición apícola",
@@ -15,58 +15,38 @@ const highlights = [
 ]
 
 export function AboutPreview() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.2 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.15 })
 
   return (
-    <section ref={sectionRef} className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Images */}
+    <section ref={sectionRef} className="py-24 mesh-bg-cool grain-overlay relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+          {/* Images - 7/12 */}
           <div
             className={cn(
-              "relative transition-all duration-700",
+              "lg:col-span-7 relative transition-all duration-700",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8",
             )}
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-dramatic lg:-ml-12">
               <Image src="/apicultores.jpg" alt="Apicultores en Rio Puelo" fill className="object-cover" />
             </div>
-            <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-background hidden md:block">
+            <div className="absolute -bottom-8 -right-4 md:right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-background hidden md:block rotate-3 hover:rotate-0 transition-transform duration-500">
               <Image src="/raymapu2.png" alt="Miel pura" fill className="object" />
             </div>
-            {/* Decorative element */}
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
           </div>
 
-          {/* Content */}
+          {/* Content - 5/12 */}
           <div
             className={cn(
-              "transition-all duration-700 delay-200",
+              "lg:col-span-5 transition-all duration-700 delay-200",
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8",
             )}
           >
             <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               Nuestra historia
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-display-md font-bold text-foreground mb-6">
               Una tradición que nace del amor por la tierra
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -79,11 +59,13 @@ export function AboutPreview() {
               con el entorno natural y aplicando técnicas modernas para obtener miel de la más alta calidad.
             </p>
 
-            <ul className="space-y-3 mb-8">
+            {/* Highlights estilo steps con línea vertical */}
+            <ul className="space-y-4 mb-8 relative">
+              <div className="absolute left-[9px] top-2 bottom-2 w-px bg-primary/20" />
               {highlights.map((item, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">{item}</span>
+                <li key={index} className="flex items-center gap-4 relative">
+                  <div className="w-[18px] h-[18px] rounded-full bg-primary/20 border-2 border-primary flex-shrink-0 relative z-10" />
+                  <span className="text-foreground text-sm">{item}</span>
                 </li>
               ))}
             </ul>

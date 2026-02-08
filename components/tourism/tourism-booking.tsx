@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, type FormEvent } from "react"
+import { useState, type FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useScrollReveal } from "@/lib/use-scroll-reveal"
 import { FaWhatsapp } from "react-icons/fa"
 
 const WHATSAPP_NUMBER = "56996165488"
@@ -19,8 +20,7 @@ const experiencias: Record<string, string> = {
 }
 
 export function TourismBooking() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.15 })
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,7 +34,7 @@ export function TourismBooking() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
-    const mensaje = `¡Hola! Me gustaría reservar una experiencia en Raymapu 🐝 
+    const mensaje = `¡Hola! Me gustaría reservar una experiencia en Raymapu 🐝
 
 *Datos de la reserva:*
 • Nombre: ${formData.name}
@@ -49,26 +49,15 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
     window.open(url, "_blank")
   }
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.2 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section ref={sectionRef} id="reservar" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} id="reservar" className="py-24 bg-secondary/30 grain-overlay relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               Reserva tu visita
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Agenda tu experiencia</h2>
+            <h2 className="text-display-md font-bold text-foreground mb-4">Agenda tu experiencia</h2>
             <p className="text-muted-foreground">
               Completa el formulario y nos pondremos en contacto contigo para confirmar tu reserva.
             </p>

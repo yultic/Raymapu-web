@@ -4,11 +4,21 @@ import { Facebook, Instagram, Youtube, Heart, Phone, Mail, MapPin } from "lucide
 
 export function Footer() {
   return (
-    <footer className="bg-amber-50 text-foreground py-4 border-t border-amber-200">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer className="relative bg-gradient-to-b from-amber-50 to-amber-100/50 text-foreground border-t border-amber-200 grain-overlay">
+      {/* Wave SVG separator */}
+      <div className="absolute -top-px left-0 right-0 overflow-hidden leading-none">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" className="w-full h-8 md:h-10">
+          <path
+            d="M0,20 C150,35 350,0 600,20 C850,40 1050,5 1200,20 L1200,0 L0,0 Z"
+            className="fill-background"
+          />
+        </svg>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 pt-12 pb-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
           {/* Brand */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-5">
             <Link href="/" className="inline-block mb-3 group">
               <Image
                 src="/raymapu2.png"
@@ -18,6 +28,7 @@ export function Footer() {
                 className="transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
+            <p className="font-display text-2xl text-foreground mb-2">Miel Raymapu</p>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
               Miel natural en Rio Puelo, producida con respeto por la naturaleza.
             </p>
@@ -31,7 +42,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110"
+                  className="w-9 h-9 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-white hover:scale-110 hover:rotate-6"
                 >
                   <Icon className="w-4 h-4" />
                 </Link>
@@ -40,7 +51,7 @@ export function Footer() {
           </div>
 
           {/* Enlaces */}
-          <div className="md:col-span-3 md:col-start-6">
+          <div className="md:col-span-3 md:col-start-7">
             <h4 className="font-semibold text-sm uppercase tracking-wider text-amber-800 mb-3">Enlaces</h4>
             <ul className="space-y-2">
               {[
