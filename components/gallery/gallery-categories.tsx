@@ -6,40 +6,44 @@ import { cn } from "@/lib/utils"
 const categories = ["Todas", "Apiario", "Productos", "Paisajes", "Turismo", "Eventos"]
 
 export function GalleryCategories() {
-  const [isVisible, setIsVisible] = useState(false)
   const [activeCategory, setActiveCategory] = useState("Todas")
-  const sectionRef = useRef<HTMLElement>(null)
+  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0 })
+  const containerRef = useRef<HTMLDivElement>(null)
+  const buttonRefs = useRef<Map<string, HTMLButtonElement>>(new Map())
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.5 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+    const btn = buttonRefs.current.get(activeCategory)
+    if (btn && containerRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect()
+      const btnRect = btn.getBoundingClientRect()
+      setPillStyle({
+        left: btnRect.left - containerRect.left,
+        width: btnRect.width,
+      })
+    }
+  }, [activeCategory])
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-8 border-b border-border sticky top-20 bg-background/95 backdrop-blur-sm z-40"
-    >
+    <section className="py-8 border-b border-border sticky top-20 bg-background/80 backdrop-blur-xl z-40">
       <div className="container mx-auto px-6">
-        <div className="flex flex-wrap justify-center gap-3">
-          {categories.map((category, index) => (
+        <div ref={containerRef} className="relative flex flex-wrap justify-center gap-3">
+          <div
+            className="absolute top-0 h-full bg-primary rounded-full transition-all duration-300 ease-out"
+            style={{ left: pillStyle.left, width: pillStyle.width }}
+          />
+          {categories.map((category) => (
             <button
               key={category}
+              ref={(el) => {
+                if (el) buttonRefs.current.set(category, el)
+              }}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
+                "relative z-10 px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                  : "bg-secondary text-foreground hover:bg-secondary/80",
+                  ? "text-primary-foreground"
+                  : "text-foreground hover:text-primary",
               )}
-              style={{ transitionDelay: `${index * 50}ms` }}
             >
               {category}
             </button>

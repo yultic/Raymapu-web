@@ -12,20 +12,22 @@ export function HeroGallery() {
   }, [])
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative min-h-[60vh] flex items-end overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url('/collage-of-beekeeping-honey-products-and-chilean-n.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-foreground/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-foreground/20" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="absolute inset-0 vignette pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10 pb-16">
         <div
           className={cn(
-            "max-w-3xl mx-auto text-center transition-all duration-700",
+            "max-w-2xl transition-all duration-700",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
@@ -33,8 +35,15 @@ export function HeroGallery() {
             <Camera className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary-foreground">Momentos capturados</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-card mb-6 text-balance">Galería</h1>
-          <p className="text-lg md:text-xl text-card/80 leading-relaxed">
+          <h1 className="text-display-xl font-bold text-card mb-4">
+            Nuestra <em className="font-display italic text-primary">Galería</em>
+          </h1>
+          <p
+            className={cn(
+              "text-lg md:text-xl text-card/80 leading-relaxed max-w-lg transition-all duration-700 delay-200",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
+            )}
+          >
             Una mirada a nuestro mundo: desde las colmenas hasta tu mesa, cada imagen cuenta nuestra historia.
           </p>
         </div>

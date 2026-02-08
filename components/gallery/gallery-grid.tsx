@@ -1,9 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 const images = [
   {
@@ -81,20 +82,8 @@ const images = [
 ]
 
 export function GalleryGrid() {
-  const [isVisible, setIsVisible] = useState(false)
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.05 })
   const [selectedImage, setSelectedImage] = useState<(typeof images)[0] | null>(null)
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.05 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <>
@@ -107,10 +96,11 @@ export function GalleryGrid() {
                 onClick={() => setSelectedImage(image)}
                 className={cn(
                   "group relative overflow-hidden rounded-xl cursor-pointer break-inside-avoid transition-all duration-500",
+                  "hover:shadow-dramatic hover:-translate-y-1",
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
                   image.size === "large" ? "aspect-[3/4]" : image.size === "medium" ? "aspect-square" : "aspect-[4/3]",
                 )}
-                style={{ transitionDelay: `${index * 50}ms` }}
+                style={{ transitionDelay: `${index * 60}ms` }}
               >
                 <Image
                   src={image.src || "/placeholder.svg"}
@@ -124,6 +114,8 @@ export function GalleryGrid() {
                     <p className="text-card font-medium">{image.alt}</p>
                   </div>
                 </div>
+                {/* Gradient border on hover */}
+                <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-primary/40 transition-colors duration-300 pointer-events-none" />
               </div>
             ))}
           </div>
@@ -133,7 +125,7 @@ export function GalleryGrid() {
       {/* Lightbox */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-foreground/95 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
           <button
