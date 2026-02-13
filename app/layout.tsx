@@ -1,19 +1,27 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google"
+import { Amatic_SC, Montserrat, Quicksand } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
-const plusJakarta = Plus_Jakarta_Sans({
+const amaticSC = Amatic_SC({
+  weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-display",
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
   variable: "--font-body",
 })
 
-const playfair = Playfair_Display({
+const quicksand = Quicksand({
   subsets: ["latin"],
-  variable: "--font-display",
+  weight: ["700"],
+  variable: "--font-cta",
 })
 
 export const metadata: Metadata = {
@@ -29,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${plusJakarta.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${montserrat.variable} ${amaticSC.variable} ${quicksand.variable} font-sans antialiased`}>
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -83,9 +83,10 @@
 }
 
 @theme inline {
-  --font-sans: "Plus Jakarta Sans", "Geist", "Geist Fallback";
+  --font-sans: "Montserrat", "Geist", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
-  --font-display: "Playfair Display", "Georgia", serif;
+  --font-display: "Amatic SC", cursive;
+  --font-cta: "Quicksand", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -136,7 +137,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-light;
   }
 
   ::selection {
@@ -163,27 +164,36 @@
 /* Clases tipograficas display */
 .font-display {
   font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+.font-cta {
+  font-family: var(--font-cta);
+  font-weight: 700;
 }
 
 .text-display-xl {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw + 1rem, 6rem);
   line-height: 1.05;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .text-display-lg {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw + 0.5rem, 3.5rem);
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .text-display-md {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.5vw + 0.25rem, 2.5rem);
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 /* Animaciones */

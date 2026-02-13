@@ -34,7 +34,7 @@ export function HeroAbout() {
             "inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 mb-6 transition-all duration-700 delay-100",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
           )}>
-            <span className="text-sm font-medium text-primary-foreground">Desde 2008</span>
+            <span className="text-sm font-medium text-primary-foreground">Desde 1998</span>
           </div>
 
           <h1 className="text-display-xl font-bold text-card mb-6">Quiénes Somos</h1>

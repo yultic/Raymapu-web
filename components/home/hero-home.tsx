@@ -44,11 +44,11 @@ export function HeroHome() {
           {/* Title */}
           <h1
             className={cn(
-              "font-display text-5xl md:text-7xl ml:text-8xl font-bold text-card leading-[1.05] tracking-tight mb-6 transition-all duration-700 delay-100",
+              "font-display text-5xl md:text-9xl ml:text-8xl font-bold text-card leading-[1.1] md: leanding-[1.05] tracking-tight mb-6 transition-all duration-700 delay-100",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-            Miel pura desde la{" "}
+            Miel pura de la{" "}
             <span className="text-primary relative">
               <em className="font-display italic">Patagonia</em>
               <svg
@@ -66,7 +66,7 @@ export function HeroHome() {
                 />
               </svg>
             </span>{" "}
-            de Chile
+            chilena
           </h1>
 
           {/* Description */}
