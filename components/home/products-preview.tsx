@@ -31,7 +31,7 @@ const products = [
   },
 ]
 
-const WHATSAPP_NUMBER = "50361615021"
+const WHATSAPP_NUMBER = "56996165488"
 
 const generateWhatsAppLink = (productName: string) => {
   const message = encodeURIComponent(

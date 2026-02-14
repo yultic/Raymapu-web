@@ -40,11 +40,11 @@ export function HeroTourism() {
 
           <h1
             className={cn(
-              "text-display-xl font-bold text-card mb-6 transition-all duration-700 delay-100",
+              "text-4xl font-bold text-card mb-6 transition-all duration-700 delay-100",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-            Turismo <em className="font-display italic text-primary">Apícola</em>
+            Turismo <em className="font-display italic text-primary text-5xl">Apícola</em>
           </h1>
 
           <p

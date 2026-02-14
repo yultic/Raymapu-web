@@ -13,20 +13,28 @@ export function HeroContact() {
 
   return (
     <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-      {/* Mitad derecha: imagen */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 bg-cover bg-center"
-          style={{ backgroundImage: `url('/9.jpg')` }}
-        >
-          <div className="absolute inset-0 bg-foreground/30 lg:bg-transparent" />
-        </div>
-        {/* Mitad izquierda: fondo sólido */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-foreground" />
-        {/* Gradiente de transición entre ambas mitades */}
-        <div className="hidden lg:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-32 bg-gradient-to-r from-foreground to-transparent z-10" />
+      {/* Fondo con imagen - visible en móvil */}
+      <div 
+        className="absolute inset-0 lg:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('/9.jpg')` }}
+      >
+        <div className="absolute inset-0 bg-foreground/70" />
       </div>
 
-      <div className="absolute inset-0 vignette pointer-events-none" />
+      {/* Estructura para escritorio: mitad negra + mitad imagen */}
+      <div className="hidden lg:flex absolute inset-0">
+        {/* Mitad izquierda: fondo negro */}
+        <div className="w-1/2 bg-foreground" />
+        {/* Mitad derecha: imagen */}
+        <div 
+          className="w-1/2 bg-cover bg-center"
+          style={{ backgroundImage: `url('/9.jpg')` }}
+        >
+          <div className="absolute inset-0 bg-foreground/30" />
+        </div>
+        {/* Gradiente de transición */}
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-32 bg-gradient-to-r from-foreground to-transparent z-10" />
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="lg:w-1/2">
