@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
 import { Truck, ShieldCheck, Leaf, RefreshCw } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 const benefits = [
   {
@@ -28,23 +28,11 @@ const benefits = [
 ]
 
 export function ProductsBenefits() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.2 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.2 })
 
   return (
-    <section ref={sectionRef} className="py-16 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} className="py-16 mesh-bg-warm relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div
@@ -55,8 +43,8 @@ export function ProductsBenefits() {
               )}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <benefit.icon className="w-6 h-6 text-primary" />
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <benefit.icon className="w-7 h-7 text-primary" />
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-1">{benefit.title}</h3>

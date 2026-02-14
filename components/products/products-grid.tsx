@@ -1,10 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Star, MessageCircle, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 const products = [
   {
@@ -89,8 +89,7 @@ const products = [
   },
 ]
 
-// Configuración de WhatsApp - cambiá el número por el del cliente
-const WHATSAPP_NUMBER = "50361615021" // formato: código país + número sin espacios
+const WHATSAPP_NUMBER = "50361615021"
 
 const generateWhatsAppLink = (productName: string) => {
   const message = encodeURIComponent(
@@ -104,23 +103,11 @@ interface ProductsGridProps {
 }
 
 export function ProductsGrid({ selectedCategory }: ProductsGridProps) {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.05 })
 
   const filteredProducts = selectedCategory === "Todos"
     ? products
     : products.filter((p) => p.category === selectedCategory)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.1 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
 
   return (
     <section ref={sectionRef} className="py-16">
@@ -130,10 +117,10 @@ export function ProductsGrid({ selectedCategory }: ProductsGridProps) {
             <div
               key={product.id}
               className={cn(
-                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full",
+                "group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="relative aspect-square overflow-hidden bg-secondary/30">
                 <Image

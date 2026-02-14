@@ -21,14 +21,21 @@ export function HeroHome() {
           backgroundImage: `url('/monteyates.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground/95 via-foreground/60 to-transparent" />
       </div>
 
+      {/* Vignette + honeycomb */}
+      <div className="absolute inset-0 vignette honeycomb-pattern pointer-events-none" />
+
+      {/* Linea diagonal dorada decorativa */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float" />
         <div
-          className="absolute bottom-40 left-10 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "1s" }}
+          className="absolute top-0 right-0 w-px h-[140%] bg-gradient-to-b from-transparent via-primary/30 to-transparent"
+          style={{ transform: "rotate(-25deg)", transformOrigin: "top right" }}
+        />
+        <div
+          className="absolute top-20 right-40 w-px h-[120%] bg-gradient-to-b from-transparent via-primary/15 to-transparent"
+          style={{ transform: "rotate(-25deg)", transformOrigin: "top right" }}
         />
       </div>
 
@@ -37,13 +44,13 @@ export function HeroHome() {
           {/* Title */}
           <h1
             className={cn(
-              "text-4xl md:text-5xl lg:text-7xl font-bold text-card leading-tight mb-6 transition-all duration-700 delay-100",
+              "font-display text-5xl md:text-9xl ml:text-8xl font-bold text-card leading-[1.1] md: leanding-[1.05] tracking-tight mb-6 transition-all duration-700 delay-100",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-            Miel pura desde la{" "}
+            Miel pura de la{" "}
             <span className="text-primary relative">
-              Patagonía
+              <em className="font-display italic">Patagonia</em>
               <svg
                 className="absolute -bottom-2 left-0 w-full"
                 viewBox="0 0 200 12"
@@ -59,7 +66,7 @@ export function HeroHome() {
                 />
               </svg>
             </span>{" "}
-            de Chile
+            chilena
           </h1>
 
           {/* Description */}
@@ -69,9 +76,9 @@ export function HeroHome() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-            Colmenares Raymapu está ubicado en Río Puelo, un bello lugar de la 
-            Patagonia Norte, rodeado de bosques nativos y libre de contaminación que forma 
-            parte de la Reserva de la Biósfera de los Bosques Lluviosos Templados de Los Andes Australes..
+            Colmenares Raymapu está ubicado en Río Puelo, un bello lugar de la
+            Patagonia Norte, rodeado de bosques nativos y libre de contaminación que forma
+            parte de la Reserva de la Biósfera de los Bosques Lluviosos Templados de Los Andes Australes.
           </p>
 
           {/* CTA Buttons */}
@@ -104,7 +111,7 @@ export function HeroHome() {
           {/* Stats */}
           <div
             className={cn(
-              "flex flex-wrap gap-8 transition-all duration-700 delay-400",
+              "flex flex-wrap gap-6 transition-all duration-700 delay-500",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
@@ -113,13 +120,16 @@ export function HeroHome() {
               { icon: Heart, value: "100%", label: "Natural y artesanal" },
               { icon: Leaf, value: "100+", label: "Clientes satisfechos" },
             ].map((stat, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+              <div
+                key={index}
+                className="flex items-center gap-3 backdrop-blur-md bg-card/10 border border-card/20 rounded-2xl px-5 py-3"
+              >
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <stat.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-card">{stat.value}</div>
-                  <div className="text-sm text-card/60">{stat.label}</div>
+                  <div className="text-xl font-bold text-card">{stat.value}</div>
+                  <div className="text-xs text-card/60">{stat.label}</div>
                 </div>
               </div>
             ))}

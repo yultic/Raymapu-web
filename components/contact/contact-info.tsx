@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 const contactDetails = [
   {
@@ -18,7 +18,7 @@ const contactDetails = [
   {
     icon: MapPin,
     title: "Ubicación",
-    lines: [ "Rio Puelo, Chile"],
+    lines: ["Rio Puelo, Chile"],
   },
   {
     icon: Clock,
@@ -34,19 +34,7 @@ const socialLinks = [
 ]
 
 export function ContactInfo() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.2 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+  const { ref: sectionRef, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 })
 
   return (
     <div
@@ -59,7 +47,7 @@ export function ContactInfo() {
       <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
         Información
       </span>
-      <h2 className="text-3xl font-bold text-foreground mb-6">Datos de contacto</h2>
+      <h2 className="text-display-md font-bold text-foreground mb-6">Datos de contacto</h2>
       <p className="text-muted-foreground mb-8">
         También puedes contactarnos directamente por teléfono o visitarnos en nuestro apiario.
       </p>
@@ -69,13 +57,13 @@ export function ContactInfo() {
           <div
             key={index}
             className={cn(
-              "flex gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300",
+              "group/card flex gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-primary/5 hover:shadow-lg transition-all duration-300",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
             style={{ transitionDelay: `${index * 100 + 200}ms` }}
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <detail.icon className="w-5 h-5 text-primary" />
+            <div className="w-12 h-12 rounded-xl bg-primary/10 group-hover/card:bg-primary/20 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+              <detail.icon className="w-5 h-5 text-primary group-hover/card:animate-bounce transition-transform" />
             </div>
             <div>
               <h3 className="font-semibold text-foreground mb-1">{detail.title}</h3>
@@ -98,7 +86,7 @@ export function ContactInfo() {
               key={label}
               href={href}
               aria-label={label}
-              className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:scale-110 group"
+              className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:scale-110 hover:rotate-6 group"
             >
               <Icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
             </a>

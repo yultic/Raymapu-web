@@ -18,11 +18,13 @@ export function HeroTourism() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/turismo1.jpg')`,
+          backgroundImage: `url('/10.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-transparent" />
       </div>
+
+      <div className="absolute inset-0 vignette pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl">
@@ -38,11 +40,11 @@ export function HeroTourism() {
 
           <h1
             className={cn(
-              "text-4xl md:text-5xl lg:text-6xl font-bold text-card mb-6 transition-all duration-700 delay-100",
+              "text-4xl font-bold text-card mb-6 transition-all duration-700 delay-100",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-            Turismo Apícola
+            Turismo <em className="font-display italic text-primary text-5xl">Apícola</em>
           </h1>
 
           <p
