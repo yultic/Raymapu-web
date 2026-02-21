@@ -98,7 +98,7 @@ export function FeaturesSection() {
                   <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 transition-transform duration-500 group-hover:scale-110">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">{feature.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-1 font-display">{feature.title}</h3>
                   <p className="text-white/80 text-sm leading-relaxed line-clamp-2">{feature.description}</p>
                 </div>
               </div>
@@ -121,7 +121,7 @@ export function FeaturesSection() {
                   <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 transition-transform duration-500 group-hover:scale-110">
                     <IconWide className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-1">{features[3].title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-1 font-display">{features[3].title}</h3>
                   <p className="text-white/80 text-sm leading-relaxed">{features[3].description}</p>
                 </div>
               </div>

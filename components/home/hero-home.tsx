@@ -14,7 +14,7 @@ export function HeroHome() {
   }, [])
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-svh md:min-h-[90vh] flex items-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -39,12 +39,12 @@ export function HeroHome() {
         />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl pb-24 pt-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-3xl pb-8 pt-20 sm:pb-12 sm:pt-12 md:pb-24 md:pt-12">
           {/* Title */}
           <h1
             className={cn(
-              "font-display text-5xl md:text-9xl ml:text-8xl font-bold text-card leading-[1.1] md: leanding-[1.05] tracking-tight mb-6 transition-all duration-700 delay-100",
+              "font-display text-6xl sm:text-5xl lg:text-9xl font-bold text-card leading-[1.1] tracking-tight mb-4 sm:mb-6 transition-all duration-700 delay-100",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
@@ -72,7 +72,7 @@ export function HeroHome() {
           {/* Description */}
           <p
             className={cn(
-              "text-lg md:text-xl text-card/80 mb-8 max-w-2xl leading-relaxed transition-all duration-700 delay-200",
+              "text-sm sm:text-lg md:text-xl text-card/80 mb-6 sm:mb-8 max-w-2xl leading-relaxed transition-all duration-700 delay-200",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
@@ -84,7 +84,7 @@ export function HeroHome() {
           {/* CTA Buttons */}
           <div
             className={cn(
-              "flex flex-wrap gap-4 mb-12 transition-all duration-700 delay-300",
+              "flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12 transition-all duration-700 delay-300",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
@@ -111,7 +111,7 @@ export function HeroHome() {
           {/* Stats */}
           <div
             className={cn(
-              "flex flex-wrap gap-6 transition-all duration-700 delay-500",
+              "grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 transition-all duration-700 delay-500",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
@@ -122,7 +122,7 @@ export function HeroHome() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 backdrop-blur-md bg-card/10 border border-card/20 rounded-2xl px-5 py-3"
+                className="flex items-center gap-3 backdrop-blur-md bg-card/10 border border-card/20 rounded-2xl px-4 py-2.5 sm:px-5 sm:py-3"
               >
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <stat.icon className="w-5 h-5 text-primary" />
@@ -134,14 +134,6 @@ export function HeroHome() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-card/60">
-        <span className="text-sm">Descubre más</span>
-        <div className="w-6 h-10 rounded-full border-2 border-card/30 flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-card/60 rounded-full animate-bounce" />
         </div>
       </div>
     </section>

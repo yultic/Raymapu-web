@@ -19,7 +19,7 @@ const products = [
     name: "Miel de Tiaca",
     description: "De color amarillo claro y brillante, esta miel ofrece aromas frutales cálidos, con notas de melón y damascos frescos. Se complementa con matices florales de jazmín y un fondo herbáceo, mentolado y silvestre, lo que la hace especialmente atractiva para la gastronomía que busca destacar aromas frescos y expresivos.",
     image: "/Tiaca.jpg",
-    rating: 4.5,
+    rating: 5,
     badge: null,
   },
   {
@@ -92,7 +92,7 @@ export function ProductsPreview() {
                   />
                 ))}
               </div>
-              <h3 className="text-2xl font-semibold text-foreground mb-3 font-display">
+              <h3 className="text-4xl font-semibold text-foreground mb-3 font-display">
                 {products[0].name}
               </h3>
               <p className="text-muted-foreground text-sm mb-6 flex-grow">
@@ -149,7 +149,7 @@ export function ProductsPreview() {
                     />
                   ))}
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-3xl font-semibold text-foreground mb-2 font-display">
                   {product.name}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4 flex-grow line-clamp-3">
