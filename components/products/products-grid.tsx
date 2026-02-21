@@ -20,7 +20,7 @@ const products = [
     name: "Miel de Tiaca",
     description: "De color amarillo claro y brillante, esta miel ofrece aromas frutales cálidos, con notas de melón y damascos frescos. Se complementa con matices florales de jazmín y un fondo herbáceo, mentolado y silvestre, lo que la hace especialmente atractiva para la gastronomía que busca destacar aromas frescos y expresivos.",
     image: "/Tiaca.jpg",
-    rating: 4.5,
+    rating: 5,
     category: "Mieles",
   },
   {

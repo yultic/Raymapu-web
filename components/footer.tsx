@@ -77,61 +77,64 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Enlaces */}
-          <div className="md:col-span-3 md:col-start-7">
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-amber-800 mb-3">
-              Enlaces
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { label: "Inicio", href: "/" },
-                { label: "Quiénes Somos", href: "/quienes-somos" },
-                { label: "Productos", href: "/productos" },
-                { label: "Turismo", href: "/turismo" },
-                { label: "Galería", href: "/galeria" },
-                { label: "Contacto", href: "/contacto" },
-              ].map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-muted-foreground text-sm hover:text-primary transition-colors duration-300"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Enlaces + Contacto: lado a lado en móvil */}
+          <div className="grid grid-cols-2 gap-8 md:contents">
+            {/* Enlaces */}
+            <div className="md:col-span-3 md:col-start-7">
+              <h4 className="font-semibold text-sm uppercase tracking-wider text-amber-800 mb-3">
+                Enlaces
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  { label: "Inicio", href: "/" },
+                  { label: "Quiénes Somos", href: "/quienes-somos" },
+                  { label: "Productos", href: "/productos" },
+                  { label: "Turismo", href: "/turismo" },
+                  { label: "Galería", href: "/galeria" },
+                  { label: "Contacto", href: "/contacto" },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Contact */}
-          <div className="md:col-span-4">
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-amber-800 mb-3">
-              Contacto
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="tel:+56996165488"
-                  className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
-                >
-                  <Phone className="w-4 h-4" />
-                  +569 96 16 54 88
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@raymapu.cl"
-                  className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
-                >
-                  <Mail className="w-4 h-4" />
-                  info@raymapu.cl
-                </a>
-              </li>
-              <li className="text-muted-foreground flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                Rio Puelo, Chile
-              </li>
-            </ul>
+            {/* Contact */}
+            <div className="md:col-span-3 md:col-start-10">
+              <h4 className="font-semibold text-sm uppercase tracking-wider text-amber-800 mb-3">
+                Contacto
+              </h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a
+                    href="tel:+56996165488"
+                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Phone className="w-4 h-4" />
+                    +569 96 16 54 88
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:info@raymapu.cl"
+                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Mail className="w-4 h-4" />
+                    info@raymapu.cl
+                  </a>
+                </li>
+                <li className="text-muted-foreground flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Rio Puelo, Chile
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
