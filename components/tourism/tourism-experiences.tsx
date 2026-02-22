@@ -7,7 +7,7 @@ import { Clock, Users, Star, ChevronDown, ChevronUp } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
-const WHATSAPP_NUMBER = "56912345678"
+const WHATSAPP_NUMBER = "56996165488"
 
 const experiences = [
   {
