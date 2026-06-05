@@ -24,10 +24,53 @@ const quicksand = Quicksand({
   variable: "--font-cta",
 })
 
+const siteUrl = "https://raymapu.cl"
+
 export const metadata: Metadata = {
-  title: "Miel Raymapu - Mieles de la Patagonia",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Raymapu - Mieles de la Patagonia",
+    template: "%s | Raymapu",
+  },
   description:
-    "Miel natural, productos apícolas y experiencias de turismo en la hermosa Araucanía. Tradición mapuche y naturaleza.",
+    "Miel natural y productos apícolas de la Patagonia Norte, producidos en Río Puelo, Chile. Bosques nativos, tradición y turismo apícola.",
+  keywords: [
+    "miel natural",
+    "miel Patagonia",
+    "Río Puelo",
+    "Cochamó",
+    "productos apícolas",
+    "turismo apícola",
+    "miel Chile",
+    "bosque nativo",
+    "Raymapu",
+  ],
+  authors: [{ name: "Raymapu" }],
+  creator: "Raymapu",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_CL",
+    url: siteUrl,
+    siteName: "Raymapu - Mieles de la Patagonia",
+    title: "Raymapu - Mieles de la Patagonia",
+    description:
+      "Miel natural y productos apícolas de la Patagonia Norte, producidos en Río Puelo, Chile.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Raymapu - Mieles de la Patagonia, Río Puelo",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({

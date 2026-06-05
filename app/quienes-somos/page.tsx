@@ -5,9 +5,9 @@ import { OurTeam } from "@/components/about/our-team"
 import { Timeline } from "@/components/about/timeline"
 
 export const metadata = {
-  title: "Quiénes Somos - Miel Raymapu",
+  title: "Quiénes Somos",
   description:
-    "Conoce nuestra historia, valores y el equipo detrás de Miel Raymapu. Más de 15 años de tradición apícola en la Araucanía.",
+    "Conoce nuestra historia, valores y el equipo detrás de Raymapu. Tradición apícola en Río Puelo desde 2008, en plena Patagonia Norte.",
 }
 
 export default function QuienesSomosPage() {
