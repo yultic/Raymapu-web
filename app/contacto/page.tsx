@@ -4,8 +4,9 @@ import { ContactInfo } from "@/components/contact/contact-info"
 import { ContactMap } from "@/components/contact/contact-map"
 
 export const metadata = {
-  title: "Contacto - Miel Raymapu",
-  description: "Contáctanos para conocer más sobre nuestra miel natural y productos. Estamos en Villarrica, Araucanía.",
+  title: "Contacto",
+  description:
+    "Contáctanos para conocer más sobre nuestra miel natural y productos apícolas. Estamos en Río Puelo, Cochamó, Patagonia Norte, Chile.",
 }
 
 export default function ContactoPage() {

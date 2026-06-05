@@ -2,14 +2,19 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { X } from "lucide-react"
+import Link from "next/link"
+import { X, Camera } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useScrollReveal } from "@/lib/use-scroll-reveal"
+
+// Poner en `true` cuando Pía entregue las fotos definitivas de la galería.
+// Mientras esté en `false` se muestra el estado "Galería en construcción".
+const IMAGES_READY = false
 
 const images = [
   {
     src: "/beehives-in-beautiful-araucania-landscape-morning-l.jpg",
-    alt: "Colmenas en la Araucanía",
+    alt: "Colmenas en Río Puelo",
     category: "Apiario",
     size: "large",
   },
@@ -21,7 +26,7 @@ const images = [
   },
   {
     src: "/villarrica-volcano-at-sunset-with-lake-reflection.jpg",
-    alt: "Volcán Villarrica al atardecer",
+    alt: "Atardecer en la Patagonia Norte",
     category: "Paisajes",
     size: "medium",
   },
@@ -45,7 +50,7 @@ const images = [
   },
   {
     src: "/native-forest-in-araucania-with-araucaria-trees.jpg",
-    alt: "Bosque nativo con araucarias",
+    alt: "Bosque nativo de la Patagonia",
     category: "Paisajes",
     size: "large",
   },
@@ -69,7 +74,7 @@ const images = [
   },
   {
     src: "/beautiful-landscape-of-villarrica-with-native-forest.jpg",
-    alt: "Paisaje de Villarrica",
+    alt: "Paisaje de Río Puelo",
     category: "Paisajes",
     size: "medium",
   },
@@ -84,6 +89,36 @@ const images = [
 export function GalleryGrid() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.05 })
   const [selectedImage, setSelectedImage] = useState<(typeof images)[0] | null>(null)
+
+  if (!IMAGES_READY) {
+    return (
+      <section ref={sectionRef} className="py-24">
+        <div className="container mx-auto px-6">
+          <div
+            className={cn(
+              "max-w-xl mx-auto text-center flex flex-col items-center gap-6 transition-all duration-700",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+            )}
+          >
+            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+              <Camera className="w-9 h-9 text-primary" />
+            </div>
+            <h2 className="font-display text-4xl text-foreground">Galería en construcción</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Estamos preparando una selección de fotos de nuestros colmenares, productos y
+              los paisajes de la Patagonia Norte. ¡Vuelve pronto!
+            </p>
+            <Link
+              href="/turismo"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90"
+            >
+              Conoce nuestro turismo apícola
+            </Link>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <>

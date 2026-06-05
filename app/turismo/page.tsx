@@ -5,9 +5,9 @@ import { TourismInfo } from "@/components/tourism/tourism-info"
 import { TourismBooking } from "@/components/tourism/tourism-booking"
 
 export const metadata = {
-  title: "Turismo - Miel Raymapu",
+  title: "Turismo Apícola",
   description:
-    "Vive la experiencia del turismo apícola en Villarrica. Visita nuestro apiario, conoce las abejas y disfruta de la naturaleza de la Araucanía.",
+    "Vive la experiencia del turismo apícola en Río Puelo, Patagonia Norte. Visita nuestros colmenares, conoce a las abejas y disfruta del bosque nativo.",
 }
 
 export default function TurismoPage() {
