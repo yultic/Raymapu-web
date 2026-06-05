@@ -9,77 +9,79 @@ import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 // Poner en `true` cuando Pía entregue las fotos definitivas de la galería.
 // Mientras esté en `false` se muestra el estado "Galería en construcción".
+// Para activar: subir las fotos a /public con estos nombres (galeria-1.jpg ... galeria-12.jpg)
+// o ajustar los `src` de abajo, y cambiar IMAGES_READY a true.
 const IMAGES_READY = false
 
 const images = [
   {
-    src: "/beehives-in-beautiful-araucania-landscape-morning-l.jpg",
+    src: "/galeria-1.jpg",
     alt: "Colmenas en Río Puelo",
     category: "Apiario",
     size: "large",
   },
   {
-    src: "/jar-of-ulmo-honey-with-golden-color-and-wooden-hon.jpg",
+    src: "/galeria-2.jpg",
     alt: "Miel de Ulmo",
     category: "Productos",
     size: "small",
   },
   {
-    src: "/villarrica-volcano-at-sunset-with-lake-reflection.jpg",
+    src: "/galeria-3.jpg",
     alt: "Atardecer en la Patagonia Norte",
     category: "Paisajes",
     size: "medium",
   },
   {
-    src: "/family-at-beekeeping-experience-with-children-learn.jpg",
+    src: "/galeria-4.jpg",
     alt: "Experiencia familiar",
     category: "Turismo",
     size: "small",
   },
   {
-    src: "/close-up-of-honey-dripping-from-honeycomb-golden-l.jpg",
+    src: "/galeria-5.jpg",
     alt: "Miel goteando del panal",
     category: "Productos",
     size: "medium",
   },
   {
-    src: "/beekeeper-inspecting-hive-frame-with-bees.jpg",
+    src: "/galeria-6.jpg",
     alt: "Apicultor inspeccionando colmena",
     category: "Apiario",
     size: "small",
   },
   {
-    src: "/native-forest-in-araucania-with-araucaria-trees.jpg",
+    src: "/galeria-7.jpg",
     alt: "Bosque nativo de la Patagonia",
     category: "Paisajes",
     size: "large",
   },
   {
-    src: "/honey-tasting-session-with-different-varieties.jpg",
+    src: "/galeria-8.jpg",
     alt: "Degustación de miel",
     category: "Turismo",
     size: "small",
   },
   {
-    src: "/gift-pack-of-honey-products-with-three-jars-and-pr.jpg",
+    src: "/galeria-9.jpg",
     alt: "Pack de regalo",
     category: "Productos",
     size: "medium",
   },
   {
-    src: "/group-of-visitors-at-beekeeping-tour-in-chile.jpg",
+    src: "/galeria-10.jpg",
     alt: "Grupo de visitantes",
     category: "Eventos",
     size: "small",
   },
   {
-    src: "/beautiful-landscape-of-villarrica-with-native-forest.jpg",
+    src: "/galeria-11.jpg",
     alt: "Paisaje de Río Puelo",
     category: "Paisajes",
     size: "medium",
   },
   {
-    src: "/hands-holding-honeycomb-frame-with-bees-natural-li.jpg",
+    src: "/galeria-12.jpg",
     alt: "Panal con abejas",
     category: "Apiario",
     size: "small",
