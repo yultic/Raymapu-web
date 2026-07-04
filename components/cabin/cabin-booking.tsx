@@ -5,28 +5,19 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useScrollReveal } from "@/lib/use-scroll-reveal"
+import { buildWhatsAppUrl } from "@/lib/site-config"
 import { FaWhatsapp } from "react-icons/fa"
 
-const WHATSAPP_NUMBER = "56996165488"
-
-const experiencias: Record<string, string> = {
-  guiada: "Experiencia Apícola Guiada",
-  sendero: "Sendero Interpretativo Selva Patagónica",
-  extraccion: "Taller de Extracción de Miel",
-}
-
-export function TourismBooking() {
+export function CabinBooking() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.15 })
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
-    experience: "",
-    date: "",
+    checkIn: "",
+    checkOut: "",
     guests: "",
     message: "",
   })
@@ -34,19 +25,17 @@ export function TourismBooking() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
-    const mensaje = `¡Hola! Me gustaría reservar una experiencia en Raymapu 🐝
+    const mensaje = `¡Hola! Me gustaría reservar la Cabaña Raymapu 🏡
 
 *Datos de la reserva:*
 • Nombre: ${formData.name}
-• Email: ${formData.email}
 • Teléfono: ${formData.phone}
-• Experiencia: ${experiencias[formData.experience] || formData.experience}
-• Fecha preferida: ${formData.date}
+• Llegada: ${formData.checkIn}
+• Salida: ${formData.checkOut}
 • Personas: ${formData.guests}
 ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
 
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`
-    window.open(url, "_blank")
+    window.open(buildWhatsAppUrl(mensaje), "_blank")
   }
 
   return (
@@ -55,11 +44,11 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Reserva tu visita
+              Reserva tu estadía
             </span>
-            <h2 className="text-display-md font-bold text-foreground mb-4">Agenda tu experiencia</h2>
+            <h2 className="text-display-md font-bold text-foreground mb-4">Tu refugio te espera</h2>
             <p className="text-muted-foreground">
-              Completa el formulario y nos pondremos en contacto contigo para confirmar tu reserva.
+              Cuéntanos cuándo quieres venir y te confirmamos la disponibilidad por WhatsApp.
             </p>
           </div>
 
@@ -83,21 +72,6 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Correo electrónico</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="tu@email.com"
-                    className="rounded-lg"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
                   <Label htmlFor="phone">Teléfono</Label>
                   <Input
                     id="phone"
@@ -108,66 +82,64 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="experience">Experiencia</Label>
-                  <Select
-                    required
-                    value={formData.experience}
-                    onValueChange={(value) => setFormData({ ...formData, experience: value })}
-                  >
-                    <SelectTrigger id="experience" className="rounded-lg">
-                      <SelectValue placeholder="Selecciona una experiencia" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(experiencias).map(([value, label]) => (
-                        <SelectItem key={value} value={value}>
-                          {label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="date">Fecha preferida</Label>
+                  <Label htmlFor="checkIn">Fecha de llegada</Label>
                   <div className="relative">
                     <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
-                      id="date"
+                      id="checkIn"
                       type="date"
                       className="rounded-lg pl-10"
                       required
-                      value={formData.date}
-                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                      value={formData.checkIn}
+                      onChange={(e) => setFormData({ ...formData, checkIn: e.target.value })}
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="guests">Número de personas</Label>
+                  <Label htmlFor="checkOut">Fecha de salida</Label>
                   <div className="relative">
-                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
-                      id="guests"
-                      type="number"
-                      min="1"
-                      max="15"
-                      placeholder="2"
+                      id="checkOut"
+                      type="date"
                       className="rounded-lg pl-10"
                       required
-                      value={formData.guests}
-                      onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+                      min={formData.checkIn || undefined}
+                      value={formData.checkOut}
+                      onChange={(e) => setFormData({ ...formData, checkOut: e.target.value })}
                     />
                   </div>
                 </div>
               </div>
 
               <div className="space-y-2">
+                <Label htmlFor="guests">Número de personas</Label>
+                <div className="relative">
+                  <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    id="guests"
+                    type="number"
+                    min="1"
+                    max="4"
+                    placeholder="2"
+                    className="rounded-lg pl-10"
+                    required
+                    value={formData.guests}
+                    onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground">Capacidad máxima: 4 personas.</p>
+              </div>
+
+              <div className="space-y-2">
                 <Label htmlFor="message">Mensaje adicional (opcional)</Label>
                 <Textarea
                   id="message"
-                  placeholder="Cuéntanos si tienes alguna solicitud especial..."
+                  placeholder="Cuéntanos si tienes alguna consulta o solicitud especial..."
                   className="rounded-lg min-h-[120px]"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
