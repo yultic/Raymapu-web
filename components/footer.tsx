@@ -90,6 +90,7 @@ export function Footer() {
                   { label: "Quiénes Somos", href: "/quienes-somos" },
                   { label: "Productos", href: "/productos" },
                   { label: "Turismo", href: "/turismo" },
+                  { label: "Cabaña", href: "/cabana" },
                   { label: "Galería", href: "/galeria" },
                   { label: "Contacto", href: "/contacto" },
                 ].map((item) => (

@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/quienes-somos", label: "Quiénes Somos" },
   { href: "/productos", label: "Productos" },
   { href: "/turismo", label: "Turismo" },
+  { href: "/cabana", label: "Cabaña" },
   { href: "/galeria", label: "Galería" },
   { href: "/contacto", label: "Contacto" },
 ]
