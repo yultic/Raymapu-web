@@ -14,9 +14,9 @@ import { FaWhatsapp } from "react-icons/fa"
 const WHATSAPP_NUMBER = "56996165488"
 
 const experiencias: Record<string, string> = {
-  tour: "Experiencia Apícola Guiada",
-  taller: "Sendero Interpretativo Selva Patagónica",
-  familiar: "Taller de Extracción de Miel",
+  guiada: "Experiencia Apícola Guiada",
+  sendero: "Sendero Interpretativo Selva Patagónica",
+  extraccion: "Taller de Extracción de Miel",
 }
 
 export function TourismBooking() {
@@ -119,9 +119,11 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
                       <SelectValue placeholder="Selecciona una experiencia" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="tour">Tour del Apiario</SelectItem>
-                      <SelectItem value="taller">Taller de Extracción</SelectItem>
-                      <SelectItem value="familiar">Experiencia Familiar</SelectItem>
+                      {Object.entries(experiencias).map(([value, label]) => (
+                        <SelectItem key={value} value={value}>
+                          {label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
