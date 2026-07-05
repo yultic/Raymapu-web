@@ -15,7 +15,7 @@ export function HeroAbout() {
       <div
         className="absolute inset-0 bg-cover"
         style={{
-          backgroundImage: `url('/mielquienes.jpg')`,
+          backgroundImage: `url('/mielquienes.webp')`,
           backgroundPosition: 'center 63%',
         }}
       >

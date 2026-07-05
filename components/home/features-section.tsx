@@ -16,7 +16,7 @@ const features = [
     icon: TreePine,
     title: "Flora Nativa",
     description: "Nuestras abejas polinizan bosques nativos de la Patagonia-Norte, creando mieles únicas.",
-    image: "/miel2.jpg",
+    image: "/miel2.webp",
   },
   {
     icon: Users,

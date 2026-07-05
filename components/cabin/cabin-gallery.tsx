@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 const images = [
-  { src: "/c7.jpeg", alt: "Cabaña Raymapu entre el bosque nativo", orientation: "landscape" },
+  { src: "/c7.webp", alt: "Cabaña Raymapu entre el bosque nativo", orientation: "landscape" },
   { src: "/c1.jpeg", alt: "Interior con escalera al loft", orientation: "portrait" },
   { src: "/c2.jpeg", alt: "Cama matrimonial", orientation: "portrait" },
   { src: "/c5.jpeg", alt: "Comedor con vista al bosque", orientation: "portrait" },
