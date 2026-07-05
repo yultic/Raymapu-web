@@ -8,12 +8,12 @@ import { useScrollReveal } from "@/lib/use-scroll-reveal"
 
 const images = [
   { src: "/c7.jpeg", alt: "Cabaña Raymapu entre el bosque nativo", orientation: "landscape" },
-  { src: "/c1.jpeg", alt: "Interior con escalera al altillo", orientation: "portrait" },
-  { src: "/c2.jpeg", alt: "Dormitorio con cama de dos plazas", orientation: "portrait" },
+  { src: "/c1.jpeg", alt: "Interior con escalera al loft", orientation: "portrait" },
+  { src: "/c2.jpeg", alt: "Cama matrimonial", orientation: "portrait" },
   { src: "/c5.jpeg", alt: "Comedor con vista al bosque", orientation: "portrait" },
   { src: "/c4.jpeg", alt: "Cocina equipada", orientation: "portrait" },
-  { src: "/c6.jpeg", alt: "Altillo con dos camas individuales", orientation: "landscape" },
-  { src: "/c3.jpeg", alt: "Baño privado con ducha", orientation: "portrait" },
+  { src: "/c6.jpeg", alt: "Loft con dos camas individuales", orientation: "landscape" },
+  { src: "/c3.jpeg", alt: "Baño con cabina de ducha", orientation: "portrait" },
 ]
 
 export function CabinGallery() {
@@ -30,7 +30,7 @@ export function CabinGallery() {
             </span>
             <h2 className="text-display-md font-bold text-foreground mb-4">Recorre la cabaña</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Madera nativa, luz natural y el bosque asomándose por cada ventana.
+              Luz natural, calidez y el bosque asomándose por cada ventana.
             </p>
           </div>
 

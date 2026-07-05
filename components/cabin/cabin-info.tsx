@@ -32,8 +32,8 @@ const info = [
   },
   {
     icon: Phone,
-    title: "Reservas",
-    description: `WhatsApp: ${siteConfig.phoneDisplay}. Coordinamos contigo la fecha de llegada y salida, y te esperamos con la cabaña lista.`,
+    title: "Disponibilidad",
+    description: `WhatsApp: ${siteConfig.phoneDisplay}. Consulta las fechas disponibles, coordinamos contigo la llegada y salida, y te esperamos con la cabaña lista.`,
   },
 ]
 

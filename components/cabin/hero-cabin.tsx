@@ -82,7 +82,7 @@ export function HeroCabin() {
             )}
           >
             <Button asChild size="lg" className="rounded-full px-8 shadow-lg shadow-primary/30 hover:shadow-primary/50">
-              <Link href="#reservar">Reservar Estadía</Link>
+              <Link href="#disponibilidad">Consultar Disponibilidad</Link>
             </Button>
             <Button
               asChild

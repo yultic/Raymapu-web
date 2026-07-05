@@ -7,18 +7,18 @@ import { useScrollReveal } from "@/lib/use-scroll-reveal"
 const features = [
   {
     icon: BedDouble,
-    title: "Dormitorio en planta baja",
-    description: "Cama de dos plazas con ropa de cama incluida y veladores.",
+    title: "Cama matrimonial",
+    description: "Con plumones de pluma de ganso para un descanso cálido y acogedor.",
   },
   {
     icon: Bed,
-    title: "Altillo con dos camas",
+    title: "Loft con dos camas individuales",
     description: "Un segundo ambiente bajo el techo a dos aguas, ideal para niños o acompañantes.",
   },
   {
     icon: CookingPot,
     title: "Cocina equipada",
-    description: "Cocinilla, horno eléctrico, frigobar, lavaplatos y vajilla completa para tu estadía.",
+    description: "Encimera a gas, horno eléctrico, frigobar, lavaplatos y vajilla completa para tu estadía.",
   },
   {
     icon: UtensilsCrossed,
@@ -27,8 +27,9 @@ const features = [
   },
   {
     icon: ShowerHead,
-    title: "Baño privado",
-    description: "Baño interior completo con ducha y agua caliente.",
+    title: "Baño cómodo",
+    description:
+      "Toallas, shampoo, jabón y secador de pelo incluidos. Cabina de ducha con agua caliente de termo eléctrico.",
   },
   {
     icon: Thermometer,
@@ -59,7 +60,7 @@ export function CabinFeatures() {
           </span>
           <h2 className="text-display-md font-bold text-foreground mb-4">Todo lo esencial, nada de más</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Una cabaña de madera nativa pensada para descansar de verdad: cálida, luminosa y con todo lo
+            Una tiny house pensada para descansar de verdad: cálida, luminosa y con todo lo
             necesario para una estadía sin preocupaciones.
           </p>
         </div>
