@@ -25,9 +25,9 @@ export function CabinBooking() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
-    const mensaje = `¡Hola! Me gustaría reservar la Cabaña Raymapu 🏡
+    const mensaje = `¡Hola! Me gustaría consultar la disponibilidad de la Cabaña Raymapu 🏡
 
-*Datos de la reserva:*
+*Datos de la consulta:*
 • Nombre: ${formData.name}
 • Teléfono: ${formData.phone}
 • Llegada: ${formData.checkIn}
@@ -39,12 +39,12 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
   }
 
   return (
-    <section ref={sectionRef} id="reservar" className="py-24 bg-secondary/30 grain-overlay relative overflow-hidden">
+    <section ref={sectionRef} id="disponibilidad" className="py-24 bg-secondary/30 grain-overlay relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-              Reserva tu estadía
+              Consulta disponibilidad
             </span>
             <h2 className="text-display-md font-bold text-foreground mb-4">Tu refugio te espera</h2>
             <p className="text-muted-foreground">
@@ -148,7 +148,7 @@ ${formData.message ? `• Mensaje: ${formData.message}` : ""}`
 
               <Button type="submit" size="lg" className="w-full rounded-full bg-[#25D366] hover:bg-[#1da851]">
                 <FaWhatsapp className="w-5 h-5 mr-2" />
-                Reservar por WhatsApp
+                Consultar Disponibilidad por WhatsApp
               </Button>
             </form>
           </div>

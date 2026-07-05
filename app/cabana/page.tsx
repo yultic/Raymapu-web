@@ -7,7 +7,7 @@ import { CabinBooking } from "@/components/cabin/cabin-booking"
 export const metadata = {
   title: "Cabaña",
   description:
-    "Arrienda nuestra cabaña en Río Puelo, Patagonia Norte. Tu refugio en la naturaleza: bosque nativo, hasta 4 personas, a 4 km de las Termas del Sol. Reserva por WhatsApp.",
+    "Arrienda nuestra cabaña en Río Puelo, Patagonia Norte. Tu refugio en la naturaleza: bosque nativo, hasta 4 personas, a 4 km de las Termas del Sol. Consulta disponibilidad por WhatsApp.",
 }
 
 export default function CabanaPage() {
