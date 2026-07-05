@@ -19,7 +19,7 @@ export function OurStory() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-dramatic">
               <Image
-                src="/vitopia.jpg"
+                src="/vitopia.webp"
                 alt="CEO"
                 fill
                 className="object-cover"

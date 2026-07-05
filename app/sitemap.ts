@@ -13,11 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contacto", priority: 0.7, changeFrequency: "yearly" as const },
   ]
 
-  const lastModified = new Date()
-
   return routes.map(({ path, priority, changeFrequency }) => ({
     url: `${siteUrl}${path}`,
-    lastModified,
     changeFrequency,
     priority,
   }))

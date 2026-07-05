@@ -18,7 +18,7 @@ export function HeroCabin() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/c7.jpeg')`,
+          backgroundImage: `url('/c7.webp')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-transparent" />
